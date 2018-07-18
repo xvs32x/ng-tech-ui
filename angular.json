@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "ng-tech-ui": {
+      "root": "projects/ng-tech-ui",
+      "sourceRoot": "projects/ng-tech-ui/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-tech-ui/tsconfig.lib.json",
+            "project": "projects/ng-tech-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-tech-ui/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-tech-ui/src/test.ts",
+            "tsConfig": "projects/ng-tech-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-tech-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-tech-ui/tsconfig.lib.json",
+              "projects/ng-tech-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-tech-ui-project"
