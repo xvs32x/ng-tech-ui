@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken, Injector } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { TechVarsI } from '../interfaces/tech-vars';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TechVarsService {
-  public vars: BehaviorSubject<TechVarsI> = new BehaviorSubject<TechVarsI>({
+  public states: BehaviorSubject<TechVarsI> = new BehaviorSubject<TechVarsI>({
     card: {
       default: {
         background: '#fff',
@@ -16,6 +18,7 @@ export class TechVarsService {
     },
     cardHeader: {
       default: {
+        display: 'block',
         padding: '1em',
         borderBottom: '1px solid #e9ecef'
       },
@@ -24,13 +27,15 @@ export class TechVarsService {
     },
     cardBody: {
       default: {
-        padding: '1em'
+        padding: '1em',
+        display: 'block'
       },
       focused: {},
       clicked: {},
     },
     cardFooter: {
       default: {
+        display: 'block',
         padding: '1em',
         borderTop: '1px solid #e9ecef'
       },
@@ -89,7 +94,7 @@ export class TechVarsService {
         borderRadius: '1.11em',
         boxShadow: 'none',
         padding: '0',
-        margin: '.85em 0 .85em 0'
+        margin: '.9em 0 .9em 0'
       },
       focused: {
         background: '#e6ebf4',
@@ -117,7 +122,7 @@ export class TechVarsService {
     },
     inputText: {
       default: {
-        padding: '.65em',
+        padding: '.5em .59em .68em .59em',
         border: '1px solid #F4F6FA',
         width: 'calc(100% - 1.7em)',
         outline: 'none',
@@ -159,3 +164,4 @@ export class TechVarsService {
   constructor() {
   }
 }
+

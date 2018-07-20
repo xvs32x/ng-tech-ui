@@ -1,22 +1,18 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, OnDestroy, OnInit, Output } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { STATE_CLICKED, STATE_DEFAULT, STATE_FOCUSED } from '../../../constants/tech-state';
-import { animate, AnimationBuilder, style } from '@angular/animations';
+import { AfterViewInit, Directive, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import { AnimationBuilder } from '@angular/animations';
 import { TechVarsElStyleI } from '../../../interfaces/tech-vars';
 import { map } from 'rxjs/internal/operators';
 import { TechVarsService } from '../../../services/tech-vars.service';
-import { AnimationMetadata } from '@angular/animations/src/animation_metadata';
+import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
 
 @Directive({
   selector: '[techRadioLabel]'
 })
-export class TechRadioLabelDirective implements OnInit, OnDestroy, AfterViewInit {
-  subs: Subscription[] = [];
-  vars: Observable<TechVarsElStyleI>;
-  state: string;
+export class TechRadioLabelDirective extends TechStateComponentClass implements OnInit, OnDestroy, AfterViewInit {
 
-  constructor(private animationBuilder: AnimationBuilder, private el: ElementRef, varsService: TechVarsService) {
-    this.vars = varsService.vars.pipe(map(x => x.radioLabel));
+  constructor(public animationBuilder: AnimationBuilder, public el: ElementRef, public varsService: TechVarsService) {
+    super(animationBuilder, el, varsService);
+    this.states$ = varsService.states.pipe(map(x => x.radioLabel));
   }
 
   ngOnInit() {
@@ -27,17 +23,10 @@ export class TechRadioLabelDirective implements OnInit, OnDestroy, AfterViewInit
   }
 
   ngAfterViewInit() {
-    const s1 = this.vars.subscribe((styles: TechVarsElStyleI) => {
+    const s1 = this.states$.subscribe((styles: TechVarsElStyleI) => {
       this.setInitialStyles(styles);
     });
     this.subs.push(s1);
-  }
-
-  setInitialStyles(styles: TechVarsElStyleI) {
-    this.state = STATE_DEFAULT;
-    Object.keys(styles.default).forEach(k => {
-      this.el.nativeElement.style[k] = styles.default[k];
-    });
   }
 
 }

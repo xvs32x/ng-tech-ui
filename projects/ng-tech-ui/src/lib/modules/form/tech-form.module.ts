@@ -8,6 +8,7 @@ import { TechInputTextDirective } from './directives/tech-input-text.directive';
 import { TechInputTextComponent } from './components/tech-input-text.component';
 import { TechInputLabelDirective } from './directives/tech-input-label.directive';
 import { TechTextareaDirective } from './directives/tech-textarea.directive';
+import { TechInputSelectComponet } from './components/tech-input-select.componet';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { TechTextareaDirective } from './directives/tech-textarea.directive';
     TechInputTextComponent,
     TechInputLabelDirective,
     TechTextareaDirective,
+    TechInputSelectComponet,
   ],
   declarations: [
     TechInputRadioComponent,
@@ -30,6 +32,7 @@ import { TechTextareaDirective } from './directives/tech-textarea.directive';
     TechInputTextComponent,
     TechInputLabelDirective,
     TechTextareaDirective,
+    TechInputSelectComponet,
   ],
   providers: [],
 })
