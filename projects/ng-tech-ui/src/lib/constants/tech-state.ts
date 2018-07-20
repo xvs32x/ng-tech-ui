@@ -1,4 +1,5 @@
 export const STATE_DEFAULT = 'default';
+export const STATE_LOADING = 'loading';
 export const STATE_FOCUSED = 'focused';
 export const STATE_CLICKED = 'clicked';
 export const STATE_DISABLED = 'disabled';

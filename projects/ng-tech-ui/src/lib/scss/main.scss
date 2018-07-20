@@ -1,0 +1,57 @@
+@import "global";
+$tech-ui-body-background: #f3f5f9 !default;
+$tech-ui-h1-font-weight: 700 !default;
+$tech-ui-h1-font-size: 3em !default;
+$tech-ui-h1-margin: 0 !default;
+$tech-ui-h1-padding: 0 !default;
+$tech-ui-h2-font-weight: 700 !default;
+$tech-ui-h2-font-size: 2.5em !default;
+$tech-ui-h2-margin: 0 !default;
+$tech-ui-h2-padding: 0 !default;
+$tech-ui-h3-font-weight: 700 !default;
+$tech-ui-h3-font-size: 2em !default;
+$tech-ui-h3-margin: 0 !default;
+$tech-ui-h3-padding: 0 !default;
+$tech-ui-h4-font-weight: 700 !default;
+$tech-ui-h4-font-size: 1.5em !default;
+$tech-ui-h4-margin: 0 !default;
+$tech-ui-h4-padding: 0 !default;
+
+html, body {
+  font-family: $tech-ui-font-family;
+  font-size: $tech-ui-font-size;
+  color: $tech-ui-font-color;
+  background: $tech-ui-body-background;
+}
+
+input, textarea {
+  font-family: $tech-ui-font-family;
+}
+
+h1 {
+  font-weight: $tech-ui-h1-font-weight;
+  font-size: $tech-ui-h1-font-size;
+  margin: $tech-ui-h1-margin;
+  padding: $tech-ui-h1-padding;
+}
+
+h2 {
+  font-weight: $tech-ui-h2-font-weight;
+  font-size: $tech-ui-h2-font-size;
+  margin: $tech-ui-h2-margin;
+  padding: $tech-ui-h2-padding;
+}
+
+h3 {
+  font-weight: $tech-ui-h3-font-weight;
+  font-size: $tech-ui-h3-font-size;
+  margin: $tech-ui-h3-margin;
+  padding: $tech-ui-h3-padding;
+}
+
+h4 {
+  font-weight: $tech-ui-h4-font-weight;
+  font-size: $tech-ui-h4-font-size;
+  margin: $tech-ui-h4-margin;
+  padding: $tech-ui-h4-padding;
+}

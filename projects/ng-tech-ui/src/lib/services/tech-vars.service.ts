@@ -44,17 +44,17 @@ export class TechVarsService {
     },
     button: {
       default: {
-        fontSize: '.9em',
-        cursor: 'pointer',
-        lineHeight: '1em',
-        padding: '1em',
-        outline: 'none',
-        fontWeight: 'bold',
-        background: '#f8f9fa',
-        color: '#212529',
-        border: 'none',
-        borderRadius: '.3em',
-        boxShadow: 'none'
+        // fontSize: '.9em',
+        // cursor: 'pointer',
+        // lineHeight: '1em',
+        // padding: '1em',
+        // outline: 'none',
+        // fontWeight: 'bold',
+        // background: '#f8f9fa',
+        // color: '#212529',
+        // border: 'none',
+        // borderRadius: '.3em',
+        // boxShadow: 'none'
       },
       focused: {
         background: '#e2e6ea'

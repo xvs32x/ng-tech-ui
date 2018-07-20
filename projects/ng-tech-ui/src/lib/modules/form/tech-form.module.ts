@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { TechInputRadioComponent } from './components/tech-input-radio.components';
-import { TechRadioLabelDirective } from './directives/tech-radio-label.directive';
 import { TechInputTextDirective } from './directives/tech-input-text.directive';
 import { TechInputTextComponent } from './components/tech-input-text.component';
-import { TechInputLabelDirective } from './directives/tech-input-label.directive';
 import { TechTextareaDirective } from './directives/tech-textarea.directive';
 import { TechInputSelectComponet } from './components/tech-input-select.componet';
+import { TechFormRadioComponent } from './components/tech-form-radio.components';
+import { TechFormRadioLabelDirective } from './directives/tech-form-radio-label.directive';
+import { TechFormLabelDirective } from './directives/tech-form-label.directive';
 
 @NgModule({
   imports: [
@@ -17,20 +17,20 @@ import { TechInputSelectComponet } from './components/tech-input-select.componet
     BrowserAnimationsModule,
   ],
   exports: [
-    TechInputRadioComponent,
-    TechRadioLabelDirective,
+    TechFormRadioComponent,
+    TechFormRadioLabelDirective,
     TechInputTextDirective,
     TechInputTextComponent,
-    TechInputLabelDirective,
+    TechFormLabelDirective,
     TechTextareaDirective,
     TechInputSelectComponet,
   ],
   declarations: [
-    TechInputRadioComponent,
-    TechRadioLabelDirective,
+    TechFormRadioComponent,
+    TechFormRadioLabelDirective,
     TechInputTextDirective,
     TechInputTextComponent,
-    TechInputLabelDirective,
+    TechFormLabelDirective,
     TechTextareaDirective,
     TechInputSelectComponet,
   ],

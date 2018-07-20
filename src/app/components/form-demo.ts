@@ -21,20 +21,20 @@ import {
           <div [fxLayout]="'row wrap'" [fxLayout.xs]="'column'">
             <div [fxFlex]="'calc(33%-1em)'"
                  style="text-align: right;" [ngStyle.xs]="{'text-align': 'left'}">
-              <label techInputLabel>Switch with label:</label>
+              <label techFormLabel>Switch with label:</label>
             </div>
             <div [fxFlex]="'calc(66%-1em)'" [ngStyle.gt-xs]="{margin: '0 .5em', padding: '.4em'}">
-              <tech-input-radio-component *ngFor="let item of inputStates"
+              <tech-form-radio-component *ngFor="let item of inputStates"
                                         [model]="inputTextState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">
                 {{item.label}}
-              </tech-input-radio-component>
+              </tech-form-radio-component>
             </div>
           </div>
           <!--Text input directive-->
           <div [fxLayout]="'row wrap'" [fxLayout.xs]="'column'">
             <div [fxFlex]="'calc(33%-1em)'"
                  style="text-align: right;" [ngStyle.xs]="{'text-align': 'left'}">
-              <label techInputLabel>Input text directive:</label>
+              <label techFormLabel>Input text directive:</label>
             </div>
             <div [fxFlex]="'calc(66%-1em)'" [ngStyle.gt-xs]="{margin: '0 .5em', padding: '.5em'}">
               <input placeholder="Styled input directive without html template..." type="text" techInputText>
@@ -44,7 +44,7 @@ import {
           <div [fxLayout]="'row wrap'" [fxLayout.xs]="'column'">
             <div [fxFlex]="'calc(33%-1em)'"
                  style="text-align: right;" [ngStyle.xs]="{'text-align': 'left'}">
-              <label techInputLabel>Input text component:</label>
+              <label techFormLabel>Input text component:</label>
             </div>
             <div [fxFlex]="'calc(66%-1em)'" [ngStyle.gt-xs]="{margin: '0 .5em', padding: '.5em'}">
               <tech-input-text
@@ -57,7 +57,7 @@ import {
           <div [fxLayout]="'row wrap'" [fxLayout.xs]="'column'">
             <div [fxFlex]="'calc(33%-1em)'"
                  style="text-align: right;" [ngStyle.xs]="{'text-align': 'left'}">
-              <label techInputLabel>Input text component:</label>
+              <label techFormLabel>Input text component:</label>
             </div>
             <div [fxFlex]="'calc(66%-1em)'" [ngStyle.gt-xs]="{margin: '0 .5em', padding: '.5em'}">
               <tech-input-text

@@ -1,0 +1,80 @@
+// Default
+$tech-ui-button-font-size: .9em !default;
+$tech-ui-button-font-weight: bold !default;
+$tech-ui-button-line-height: .8em !default;
+$tech-ui-button-padding: 1em !default;
+$tech-ui-button-border: 1px solid #f8f9fa !default;
+$tech-ui-button-border-radius: .3em !default;
+$tech-ui-button-box-shadow: none !default;
+$tech-ui-button-background: #f8f9fa !default;
+$tech-ui-button-color: #262a2e !default;
+$tech-ui-button-focused-transition: background .15s ease-out !default;
+$tech-ui-button-focused-background: #e2e6ea !default;
+$tech-ui-button-clicked-transition: box-shadow .15s ease-out !default;
+$tech-ui-button-clicked-box-shadow: 0 0 0 3px rgba(6, 96, 197, 0.5) !default;
+// Primary
+$tech-ui-button-primary-font-size: .9em !default;
+$tech-ui-button-primary-font-weight: bold !default;
+$tech-ui-button-primary-line-height: .8em !default;
+$tech-ui-button-primary-padding: 1em !default;
+$tech-ui-button-primary-border: 1px solid #2563c8 !default;
+$tech-ui-button-primary-border-radius: .3em !default;
+$tech-ui-button-primary-box-shadow: none !default;
+$tech-ui-button-primary-background: #2563c8 !default;
+$tech-ui-button-primary-color: #fff !default;
+$tech-ui-button-primary-focused-transition: background .15s ease-out !default;
+$tech-ui-button-primary-focused-background: #253b92 !default;
+$tech-ui-button-primary-clicked-transition: box-shadow .15s ease-out !default;
+$tech-ui-button-primary-clicked-box-shadow: 0 0 0 3px rgba(6, 96, 197, 0.5) !default;
+
+.tech-ui-button {
+  cursor: pointer;
+  outline: 0;
+  background: $tech-ui-button-background;
+  color: $tech-ui-button-color;
+  font-size: $tech-ui-button-font-size;
+  line-height: $tech-ui-button-line-height;
+  padding: $tech-ui-button-padding;
+  font-weight: $tech-ui-button-font-weight;
+  border: $tech-ui-button-border;
+  border-radius: $tech-ui-button-border-radius;
+  box-shadow: $tech-ui-button-box-shadow;
+
+  &.focused {
+    transition: $tech-ui-button-focused-transition;
+    background: $tech-ui-button-focused-background;
+  }
+  &.clicked {
+    transition: $tech-ui-button-clicked-transition;
+    box-shadow: $tech-ui-button-clicked-box-shadow;
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+.tech-ui-button-primary {
+  cursor: pointer;
+  outline: 0;
+  background: $tech-ui-button-primary-background;
+  color: $tech-ui-button-primary-color;
+  font-size: $tech-ui-button-primary-font-size;
+  line-height: $tech-ui-button-primary-line-height;
+  padding: $tech-ui-button-primary-padding;
+  font-weight: $tech-ui-button-primary-font-weight;
+  border: $tech-ui-button-primary-border;
+  border-radius: $tech-ui-button-primary-border-radius;
+  box-shadow: $tech-ui-button-primary-box-shadow;
+
+  &.focused {
+    transition: $tech-ui-button-primary-focused-transition;
+    background: $tech-ui-button-primary-focused-background;
+  }
+  &.clicked {
+    transition: $tech-ui-button-primary-clicked-transition;
+    box-shadow: $tech-ui-button-primary-clicked-box-shadow;
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
