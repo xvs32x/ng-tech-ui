@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-card-demo',
   template: `
     <div [fxLayout]="'row wrap'">
-      <app-tech-card
+      <tech-card
         *ngFor="let card of cards; let i = index"
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
@@ -12,17 +12,17 @@ import { Component, OnInit } from '@angular/core';
         [fxFlex.lg]="'calc(25%-2em)'"
         style="margin: 1em;"
       >
-        <app-tech-card-header>
+        <tech-card-header>
           <h4>{{card.header}} #{{i + 1}}</h4>
-        </app-tech-card-header>
-        <app-tech-card-body>
+        </tech-card-header>
+        <tech-card-body>
           {{card.text}}
-        </app-tech-card-body>
-        <app-tech-card-footer>
-          <button appTechButtonPrimary>Primary action</button>
-          <button appTechButton style="margin-left: .5em;">Cancel</button>
-        </app-tech-card-footer>
-      </app-tech-card>
+        </tech-card-body>
+        <tech-card-footer>
+          <button techButtonPrimary>Primary action</button>
+          <button techButton style="margin-left: .5em;">Cancel</button>
+        </tech-card-footer>
+      </tech-card>
     </div>`
 })
 export class CardDemoComponent implements OnInit {
