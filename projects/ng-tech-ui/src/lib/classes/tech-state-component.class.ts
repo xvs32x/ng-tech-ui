@@ -1,8 +1,8 @@
 import { STATE_CLICKED, STATE_DEFAULT, STATE_DISABLED, STATE_FOCUSED } from '../constants/tech-state';
-import { ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
+import { ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 export class TechStateComponentClass {
-  state: string;
+  @Input() state: string;
   @Output() OnMouseOver: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnMouseLeave: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnClick: EventEmitter<Event> = new EventEmitter<Event>();

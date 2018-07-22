@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { TechInputTextDirective } from '../directives/tech-input-text.directive';
-import { TechVarsElStyleI } from '../../../interfaces/tech-vars';
+import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
 
 
 @Component({
@@ -12,29 +11,17 @@ import { TechVarsElStyleI } from '../../../interfaces/tech-vars';
   `
 })
 
-export class TechInputTextComponent  implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  subs: Subscription[] = [];
+export class TechInputTextComponent extends TechStateComponentClass implements OnInit, OnChanges {
   @Input() type = 'text';
   @Input() model: string;
-  @Input() state;
   @Input() placeholder;
   @ViewChild(TechInputTextDirective) child: TechInputTextDirective;
 
-  constructor() {
+  constructor(public el: ElementRef) {
+    super(el);
   }
 
   ngOnInit() {
-  }
-
-  ngOnDestroy() {
-    this.subs.forEach(s => s.unsubscribe());
-  }
-
-  ngAfterViewInit() {
-    const s = this.child.states$.subscribe((styles: TechVarsElStyleI) => {
-      this.child.setInitialStyles(styles);
-    });
-    this.subs.push(s);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -44,6 +31,6 @@ export class TechInputTextComponent  implements OnInit, OnDestroy, OnChanges, Af
   }
 
   changeChildState(state: string) {
-    this.child.switchState(300, state);
+    this.child.switchState(state);
   }
 }

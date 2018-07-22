@@ -12,6 +12,8 @@ $tech-ui-button-focused-transition: background .15s ease-out !default;
 $tech-ui-button-focused-background: #e2e6ea !default;
 $tech-ui-button-clicked-transition: box-shadow .15s ease-out !default;
 $tech-ui-button-clicked-box-shadow: 0 0 0 3px rgba(6, 96, 197, 0.5) !default;
+$tech-ui-button-clicked-cursor: pointer !default;
+$tech-ui-button-clicked-outline: none;
 // Primary
 $tech-ui-button-primary-font-size: .9em !default;
 $tech-ui-button-primary-font-weight: bold !default;
@@ -26,10 +28,12 @@ $tech-ui-button-primary-focused-transition: background .15s ease-out !default;
 $tech-ui-button-primary-focused-background: #253b92 !default;
 $tech-ui-button-primary-clicked-transition: box-shadow .15s ease-out !default;
 $tech-ui-button-primary-clicked-box-shadow: 0 0 0 3px rgba(6, 96, 197, 0.5) !default;
+$tech-ui-button-primary-clicked-cursor: pointer !default;
+$tech-ui-button-primary-clicked-outline: none;
 
 .tech-ui-button {
-  cursor: pointer;
-  outline: 0;
+  cursor: $tech-ui-button-clicked-cursor;
+  outline: $tech-ui-button-clicked-outline;
   background: $tech-ui-button-background;
   color: $tech-ui-button-color;
   font-size: $tech-ui-button-font-size;
@@ -54,8 +58,8 @@ $tech-ui-button-primary-clicked-box-shadow: 0 0 0 3px rgba(6, 96, 197, 0.5) !def
 }
 
 .tech-ui-button-primary {
-  cursor: pointer;
-  outline: 0;
+  cursor: $tech-ui-button-primary-clicked-cursor;
+  outline: $tech-ui-button-primary-clicked-outline;
   background: $tech-ui-button-primary-background;
   color: $tech-ui-button-primary-color;
   font-size: $tech-ui-button-primary-font-size;
