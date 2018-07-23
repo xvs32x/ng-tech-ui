@@ -9,12 +9,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TechCardModule } from '../../projects/ng-tech-ui/src/lib/modules/card/tech-card.module';
 import { TechButtonModule } from '../../projects/ng-tech-ui/src/lib/modules/button/tech-button.module';
 import { TechFormModule } from '../../projects/ng-tech-ui/src/lib/modules/form/tech-form.module';
+import { TechSpinnerModule } from '../../projects/ng-tech-ui/src/lib/modules/spinner/tech-spinner.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardDemoComponent,
-    FormDemoComponent
+    FormDemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +24,7 @@ import { TechFormModule } from '../../projects/ng-tech-ui/src/lib/modules/form/t
     TechCardModule,
     TechButtonModule,
     TechFormModule,
+    TechSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

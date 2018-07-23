@@ -1,7 +1,28 @@
+// Card
+$tech-ui-card-background: #fff !default;
+$tech-ui-card-border-radius: 4px !default;
+$tech-ui-card-box-shadow: 0 0 13px #d8dfed !default;
+$tech-ui-card-position: relative !default;
+
+// Card header
+$tech-ui-card-header-display: block !default;
+$tech-ui-card-header-padding: 1em !default;
+$tech-ui-card-header-border-bottom: 1px solid #e9ecef !default;
+
+// Card body
+$tech-ui-card-body-padding: 1em !default;
+$tech-ui-card-body-display: block !default;
+
+// Card footer
+$tech-ui-card-footer-display: block !default;
+$tech-ui-card-footer-padding: 1em !default;
+$tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
+
 .tech-ui-card {
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 0 13px #d8dfed;
+  position: $tech-ui-card-position;
+  background: $tech-ui-card-background;
+  border-radius: $tech-ui-card-border-radius;
+  box-shadow: $tech-ui-card-box-shadow;
 
   .focused {
   }
@@ -10,9 +31,9 @@
 }
 
 .tech-ui-card-header {
-  display: block;
-  padding: 1em;
-  border-bottom: 1px solid #e9ecef;
+  display: $tech-ui-card-header-display;
+  padding: $tech-ui-card-header-padding;
+  border-bottom: $tech-ui-card-header-border-bottom;
 
   &.focused {
   }
@@ -21,8 +42,8 @@
 }
 
 .tech-ui-card-body {
-  padding: 1em;
-  display: block;
+  padding: $tech-ui-card-body-padding;
+  display: $tech-ui-card-body-display;
 
   &.focused {
   }
@@ -31,9 +52,9 @@
 }
 
 .tech-ui-card-footer {
-  display: block;
-  padding: 1em;
-  border-top: 1px solid #e9ecef;
+  display: $tech-ui-card-footer-display;
+  padding: $tech-ui-card-footer-padding;
+  border-top: $tech-ui-card-footer-border-top;
 
   &.focused {
   }

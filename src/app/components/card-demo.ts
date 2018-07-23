@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div [fxLayout]="'row wrap'">
       <tech-card
-        *ngFor="let card of cards; trackBy: trackByFn; let i = index"
+        *ngFor="let card of cards; trackBy: trackByFn; let i = index" techSpinner
         [state]="card.state"
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
