@@ -4,11 +4,13 @@ import { TechCardHeaderComponent } from './components/tech-card-header.component
 import { TechCardBodyComponent } from './components/tech-card-body.component';
 import { TechCardFooterComponent } from './components/tech-card-footer.component';
 import { TechCardComponent } from './components/tech-card.components';
+import { TechSpinnerModule } from '../spinner/tech-spinner.module';
 
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TechSpinnerModule
   ],
   exports: [
     TechCardComponent,

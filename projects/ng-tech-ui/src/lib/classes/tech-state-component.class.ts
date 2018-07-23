@@ -1,17 +1,27 @@
-import { STATE_CLICKED, STATE_DEFAULT, STATE_DISABLED, STATE_FOCUSED } from '../constants/tech-state';
-import { ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { STATE_CLICKED, STATE_DEFAULT, STATE_DISABLED, STATE_FOCUSED, STATE_LOADING } from '../constants/tech-state';
+import { ElementRef, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
-export class TechStateComponentClass {
+export class TechStateComponentClass implements OnChanges {
   @Input() state: string;
   @Output() OnMouseOver: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnMouseLeave: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnClick: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnBlur: EventEmitter<Event> = new EventEmitter<Event>();
 
-  constructor(public el: ElementRef) {}
+  constructor(public el: ElementRef) {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.state.previousValue !== changes.state.currentValue) {
+      if (changes.state.previousValue) {
+        this.el.nativeElement.classList.remove(changes.state.previousValue);
+      }
+      this.el.nativeElement.classList.add(changes.state.currentValue);
+    }
+  }
 
   @HostListener('mouseover', ['$event']) onMouseOver(e?) {
-    if (e && this.state === STATE_CLICKED) {
+    if (e && (this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -21,7 +31,7 @@ export class TechStateComponentClass {
   }
 
   @HostListener('mouseleave', ['$event']) onMouseLeave(e?) {
-    if (e && this.state === STATE_CLICKED) {
+    if (e && (this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -31,7 +41,7 @@ export class TechStateComponentClass {
   }
 
   @HostListener('click', ['$event']) onClick(e?) {
-    if (this.state === STATE_CLICKED) {
+    if (e && (this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -41,6 +51,9 @@ export class TechStateComponentClass {
   }
 
   @HostListener('onblur', ['$event']) onBlur(e?) {
+    if (e && (this.state === STATE_LOADING)) {
+      return;
+    }
     if (e) {
       this.OnBlur.next(e);
     }

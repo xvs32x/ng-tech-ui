@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div [fxLayout]="'row wrap'">
       <tech-card
-        *ngFor="let card of cards; let i = index"
+        *ngFor="let card of cards; trackBy: trackByFn; let i = index"
+        [state]="card.state"
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
         [fxFlex.md]="'calc(33%-2em)'"
@@ -19,7 +20,7 @@ import { Component, OnInit } from '@angular/core';
           {{card.text}}
         </tech-card-body>
         <tech-card-footer>
-          <button techButtonPrimary>Primary action</button>
+          <button (click)="showSpinner($event, i)" techButtonPrimary>Primary action</button>
           <button techButton style="margin-left: .5em;">Cancel</button>
         </tech-card-footer>
       </tech-card>
@@ -34,6 +35,7 @@ export class CardDemoComponent implements OnInit {
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
     `,
+    state: 'default'
   };
   cards = [this.card, this.card, this.card, this.card, this.card, this.card];
 
@@ -42,4 +44,21 @@ export class CardDemoComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  showSpinner(e, cardIndex: number) {
+    this.cards = this.cards.map((card, index) => {
+      if (index === cardIndex) {
+        return {
+          ...card,
+          state: 'loading'
+        };
+      }
+      return card;
+    });
+  }
+
+  trackByFn(index, item) {
+    return index;
+  }
+
 }

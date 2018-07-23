@@ -36,7 +36,7 @@ $tech-ui-form-input-background: #F4F6FA !default;
 $tech-ui-form-input-border-radius: .3em !default;
 $tech-ui-form-input-cursor: text !default;
 $tech-ui-form-input-font-size: 1em !default;
-$tech-ui-form-input-clicked-transition: background .15s ease-out !default;
+$tech-ui-form-input-clicked-transition: .15s ease-out !default;
 $tech-ui-form-input-clicked-background: #E7EBF4 !default;
 $tech-ui-form-input-clicked-border: 1px solid #E7EBF4 !default;
 $tech-ui-form-input-validated-transition: background .15s ease-out !default;
@@ -78,7 +78,7 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   &.disabled {
     transition: $tech-ui-form-input-disabled-transition;
     background: $tech-ui-form-input-disabled-background;
-    border: 1$tech-ui-form-input-disabled-border;
+    border: $tech-ui-form-input-disabled-border;
     cursor: $tech-ui-form-input-disabled-cursor;
   }
 }
