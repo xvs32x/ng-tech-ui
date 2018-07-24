@@ -1,24 +1,56 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Directive({
   selector: '[techSpinner]'
 })
-export class TechSpinnerDirective {
+export class TechSpinnerDirective implements OnInit, OnChanges {
+  spinner: HTMLElement;
+  @Input() isShow: boolean;
+  @Input() color: string;
+  @Input() cancelable: boolean;
+  @Output() OnCancel: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(public el: ElementRef) {
-    const tree = document.createElement('div');
-    tree.className = 'tech-ui-spinner';
-    tree.style.color = '#2563c8';
-    tree.style.position = 'absolute';
-    tree.style.top = '50%';
-    tree.style.left = '50%';
-    tree.style.transform = 'translate(-50%, -50%)';
-    tree.innerHTML = `
+    this.spinner = document.createElement('div');
+    this.spinner.className = 'tech-ui-spinner disabled';
+    this.spinner.innerHTML = `
       <div class="animation-container">
           <div></div>
           <div></div>
           <div></div>
       </div>
     `;
-    this.el.nativeElement.appendChild(tree);
+    // Append, show and animate
+    this.el.nativeElement.appendChild(this.spinner);
+  }
+
+  ngOnInit() {
+    if (this.color) {
+      this.spinner.style.color = this.color;
+    }
+    // Cancel
+    if (this.cancelable) {
+      this.spinner.style.cursor = 'pointer';
+      this.spinner.onclick = ($event) => {
+        this.OnCancel.next($event);
+        this.toggle(false);
+      };
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.isShow && changes.isShow.previousValue !== changes.isShow.currentValue) {
+      this.toggle(changes.isShow.currentValue);
+    }
+  }
+
+  toggle(isShow: boolean) {
+    if (isShow) {
+      setTimeout(() => {
+        this.spinner.className = 'tech-ui-spinner default';
+      }, 100);
+    } else {
+      this.spinner.className = 'tech-ui-spinner disabled';
+    }
   }
 }

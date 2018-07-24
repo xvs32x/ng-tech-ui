@@ -1,12 +1,12 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ElementRef, EventEmitter,
+  ElementRef,
+  EventEmitter,
   HostListener,
   Input,
   OnChanges,
-  OnInit, Output,
+  Output,
   SimpleChanges
 } from '@angular/core';
 import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
@@ -21,20 +21,14 @@ import { STATE_CLICKED } from '../../../constants/tech-state';
     </button>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TechFormRadioComponent extends TechStateComponentClass implements OnInit, OnChanges, AfterViewInit {
+export class TechFormRadioComponent extends TechStateComponentClass implements OnChanges {
   @Input() model: string;
   @Input() name: string;
   @Output() OnModelChange: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(public el: ElementRef) {
     super(el);
-  }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    this.el.nativeElement.classList.add('tech-ui-form-radio');
+    this.el.nativeElement.classList.add('tech-ui-form-radio', 'default');
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -46,7 +40,7 @@ export class TechFormRadioComponent extends TechStateComponentClass implements O
   }
 
   @HostListener('click', ['$event']) onClick(e?) {
-    if (e && this.state === STATE_CLICKED) {
+    if (e && !this.isFrozenState && this.state === STATE_CLICKED) {
       return;
     }
     if (e) {

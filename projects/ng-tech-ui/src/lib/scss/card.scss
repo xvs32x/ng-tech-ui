@@ -3,6 +3,10 @@ $tech-ui-card-background: #fff !default;
 $tech-ui-card-border-radius: 4px !default;
 $tech-ui-card-box-shadow: 0 0 13px #d8dfed !default;
 $tech-ui-card-position: relative !default;
+$tech-ui-card-overflow: hidden !default;
+$tech-ui-card-display: flex !default;
+$tech-ui-card-flex-direction: column !default;
+$tech-ui-card-flex-justify-content: start !default;
 
 // Card header
 $tech-ui-card-header-display: block !default;
@@ -21,12 +25,25 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
 .tech-ui-card {
   position: $tech-ui-card-position;
   background: $tech-ui-card-background;
+  border: 1px solid #fff;
   border-radius: $tech-ui-card-border-radius;
   box-shadow: $tech-ui-card-box-shadow;
+  overflow: $tech-ui-card-overflow;
+  display: $tech-ui-card-display;
+  flex-direction: $tech-ui-card-flex-direction;
+  justify-content: $tech-ui-card-flex-justify-content;
 
-  .focused {
+  &.focused {
   }
-  .clicked {
+  &.clicked {
+  }
+  &.validated {
+    transition: background .15s ease-out;
+    background: #D1F0E6;
+  }
+  &.invalidated {
+    transition: background .15s ease-out;
+    background: #F0D5EA;
   }
 }
 
@@ -44,6 +61,7 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
 .tech-ui-card-body {
   padding: $tech-ui-card-body-padding;
   display: $tech-ui-card-body-display;
+  flex-grow: 1;
 
   &.focused {
   }

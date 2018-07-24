@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
 
 
@@ -9,17 +9,11 @@ import { TechStateComponentClass } from '../../../classes/tech-state-component.c
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TechCardComponent extends TechStateComponentClass implements OnInit, AfterViewInit {
+export class TechCardComponent extends TechStateComponentClass {
 
   constructor(public el: ElementRef) {
     super(el);
-  }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    this.el.nativeElement.classList.add('tech-ui-card');
+    this.el.nativeElement.classList.add('tech-ui-card', 'default');
   }
 
 }

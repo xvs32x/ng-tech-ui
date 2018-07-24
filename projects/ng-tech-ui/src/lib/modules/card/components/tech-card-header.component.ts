@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
 
 
@@ -6,17 +6,11 @@ import { TechStateComponentClass } from '../../../classes/tech-state-component.c
   selector: 'tech-card-header',
   template: `<ng-content></ng-content>`,
 })
-export class TechCardHeaderComponent extends TechStateComponentClass implements OnInit, AfterViewInit {
+export class TechCardHeaderComponent extends TechStateComponentClass {
 
   constructor(public el: ElementRef) {
     super(el);
-  }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    this.el.nativeElement.classList.add('tech-ui-card-header');
+    this.el.nativeElement.classList.add('tech-ui-card-header', 'default');
   }
 
 }

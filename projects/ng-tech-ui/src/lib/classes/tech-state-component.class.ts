@@ -3,6 +3,7 @@ import { ElementRef, EventEmitter, HostListener, Input, OnChanges, Output, Simpl
 
 export class TechStateComponentClass implements OnChanges {
   @Input() state: string;
+  @Input() isFrozenState: boolean;
   @Output() OnMouseOver: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnMouseLeave: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnClick: EventEmitter<Event> = new EventEmitter<Event>();
@@ -12,7 +13,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.state.previousValue !== changes.state.currentValue) {
+    if (changes.state && changes.state.previousValue !== changes.state.currentValue) {
       if (changes.state.previousValue) {
         this.el.nativeElement.classList.remove(changes.state.previousValue);
       }
@@ -21,7 +22,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('mouseover', ['$event']) onMouseOver(e?) {
-    if (e && (this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (this.isFrozenState || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -31,7 +32,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('mouseleave', ['$event']) onMouseLeave(e?) {
-    if (e && (this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (this.isFrozenState || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -41,7 +42,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('click', ['$event']) onClick(e?) {
-    if (e && (this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (this.isFrozenState || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -51,7 +52,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('onblur', ['$event']) onBlur(e?) {
-    if (e && (this.state === STATE_LOADING)) {
+    if (e && (this.isFrozenState || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {

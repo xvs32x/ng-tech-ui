@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { TechInputTextDirective } from '../directives/tech-input-text.directive';
 import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
 
@@ -6,12 +6,12 @@ import { TechStateComponentClass } from '../../../classes/tech-state-component.c
 @Component({
   selector: 'tech-input-text',
   template: `
-    <input *ngIf="type === 'text'" #child [placeholder]="placeholder" [type]="type" techInputText/>
+    <input *ngIf="type === 'text' || type === 'password'" #child [placeholder]="placeholder" [type]="type" techInputText/>
     <textarea *ngIf="type === 'textarea'" #child [placeholder]="placeholder" techInputText></textarea>
   `
 })
 
-export class TechInputTextComponent extends TechStateComponentClass implements OnInit, OnChanges {
+export class TechInputTextComponent extends TechStateComponentClass implements OnChanges {
   @Input() type = 'text';
   @Input() model: string;
   @Input() placeholder;
@@ -19,9 +19,6 @@ export class TechInputTextComponent extends TechStateComponentClass implements O
 
   constructor(public el: ElementRef) {
     super(el);
-  }
-
-  ngOnInit() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
