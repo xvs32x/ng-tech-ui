@@ -59,51 +59,6 @@ Changed version of http://github.danielcardoso.net/load-awesome/animations/ball-
   }
 }
 
-/*
- * Animation
- */
-@-webkit-keyframes ball-scale-multiple {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  5% {
-    opacity: .75;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@-moz-keyframes ball-scale-multiple {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  5% {
-    opacity: .75;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@-o-keyframes ball-scale-multiple {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  5% {
-    opacity: .75;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
 @keyframes ball-scale-multiple {
   0% {
     opacity: 0;

@@ -10,12 +10,14 @@ import { TechCardModule } from '../../projects/ng-tech-ui/src/lib/modules/card/t
 import { TechButtonModule } from '../../projects/ng-tech-ui/src/lib/modules/button/tech-button.module';
 import { TechFormModule } from '../../projects/ng-tech-ui/src/lib/modules/form/tech-form.module';
 import { TechSpinnerModule } from '../../projects/ng-tech-ui/src/lib/modules/spinner/tech-spinner.module';
+import { TypographyDemoComponent } from './components/typography-demo';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardDemoComponent,
     FormDemoComponent,
+    TypographyDemoComponent
   ],
   imports: [
     BrowserModule,

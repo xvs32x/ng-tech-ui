@@ -1,14 +1,14 @@
-import { Directive, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 @Directive({
   selector: '[techSpinner]'
 })
-export class TechSpinnerDirective implements OnInit, OnChanges {
+export class TechSpinnerDirective implements OnChanges {
   spinner: HTMLElement;
-  @Input() isShow: boolean;
-  @Input() color: string;
-  @Input() cancelable: boolean;
-  @Output() OnCancel: EventEmitter<any> = new EventEmitter<any>();
+  @Input() spinnerIsShow: boolean;
+  @Input() spinnerColor: string;
+  @Input() isSpinnerCancelable: boolean;
+  @Input() @Output() OnSpinnerCancel: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(public el: ElementRef) {
     this.spinner = document.createElement('div');
@@ -20,31 +20,25 @@ export class TechSpinnerDirective implements OnInit, OnChanges {
           <div></div>
       </div>
     `;
-    // Append, show and animate
     this.el.nativeElement.appendChild(this.spinner);
-  }
-
-  ngOnInit() {
-    if (this.color) {
-      this.spinner.style.color = this.color;
-    }
-    // Cancel
-    if (this.cancelable) {
-      this.spinner.style.cursor = 'pointer';
-      this.spinner.onclick = ($event) => {
-        this.OnCancel.next($event);
-        this.toggle(false);
-      };
-    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.isShow && changes.isShow.previousValue !== changes.isShow.currentValue) {
-      this.toggle(changes.isShow.currentValue);
+      this.switchIsShow(changes.isShow.currentValue);
+    }
+    if (changes.isSpinnerCancelable && changes.isSpinnerCancelable.previousValue !== changes.isSpinnerCancelable.currentValue) {
+      this.switchIsCancelable(changes.isSpinnerCancelable.currentValue);
+    }
+    if (changes.spinnerColor && changes.spinnerColor.previousValue !== changes.spinnerColor.currentValue) {
+      this.changesColor(changes.spinnerColor.currentValue);
+    }
+    if (changes.OnSpinnerCancel) {
+      this.changeOnSpinnerCancel(changes.OnSpinnerCancel.currentValue);
     }
   }
 
-  toggle(isShow: boolean) {
+  switchIsShow(isShow: boolean) {
     if (isShow) {
       setTimeout(() => {
         this.spinner.className = 'tech-ui-spinner default';
@@ -53,4 +47,26 @@ export class TechSpinnerDirective implements OnInit, OnChanges {
       this.spinner.className = 'tech-ui-spinner disabled';
     }
   }
+
+  switchIsCancelable(isCancelable: boolean) {
+    if (isCancelable) {
+      this.spinner.style.cursor = 'pointer';
+      this.spinner.onclick = ($event) => {
+        this.OnSpinnerCancel.next($event);
+        this.switchIsShow(false);
+      };
+    } else {
+      this.spinner.style.cursor = 'default';
+      this.spinner.onclick = null;
+    }
+  }
+
+  changesColor(color: string) {
+    this.spinner.style.color = color;
+  }
+
+  changeOnSpinnerCancel(event: EventEmitter<any>) {
+    this.OnSpinnerCancel = event;
+  }
+
 }

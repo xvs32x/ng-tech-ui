@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import {
   STATE_CLICKED,
   STATE_DEFAULT, STATE_DISABLED, STATE_FOCUSED,
   STATE_INVALIDATED, STATE_LOADING,
   STATE_VALIDATED
 } from '../../../projects/ng-tech-ui/src/lib/constants/tech-state';
+import { Subscription } from 'rxjs';
+import { tap } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-card-demo',
   template: `
+    <div class="demo-title">
+      <h3>Card</h3>
+      <hr>
+    </div>
     <div [fxLayout]="'row wrap'">
       <!-- Simple card -->
       <tech-card
@@ -83,8 +89,7 @@ import {
       <!-- Card with states switch -->
       <tech-card
         [isFrozenState]="true"
-        [state]="cardState"
-        techSpinner [isShow]="true" [cancelable]="true"
+        [state]="cardState" [isSpinnerCancelable]="true" [OnSpinnerCancel]="onLoadingCanceled"
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
         [fxFlex.md]="'calc(33%-2em)'"
@@ -120,7 +125,8 @@ import {
       </tech-card>
     </div>`
 })
-export class CardDemoComponent implements OnInit {
+export class CardDemoComponent implements OnInit, OnDestroy {
+  subs: Subscription[] = [];
   cardState = STATE_DEFAULT;
   inputStates = [
     {name: STATE_DEFAULT, label: 'Default'},
@@ -131,11 +137,18 @@ export class CardDemoComponent implements OnInit {
     {name: STATE_DISABLED, label: 'Disabled'},
     {name: STATE_LOADING, label: 'Loading'},
   ];
+  onLoadingCanceled: EventEmitter<any> = new EventEmitter();
 
   constructor() {
+    const s = this.onLoadingCanceled.pipe(tap(x => console.log(x))).subscribe();
+    this.subs.push(s);
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.subs.forEach(s => s.unsubscribe());
   }
 
   sayThanks() {
@@ -144,30 +157,6 @@ export class CardDemoComponent implements OnInit {
 
   onInputTextStateChange(state) {
     this.cardState = state;
-  }
-
-  showSpinner(e, cardIndex: number) {
-    // this.cards = this.cards.map((card, index) => {
-    //   if (index === cardIndex) {
-    //     return {
-    //       ...card,
-    //       state: 'loading'
-    //     };
-    //   }
-    //   return card;
-    // });
-  }
-
-  OnCardLoadingCancel(e, cardIndex: number) {
-    // this.cards = this.cards.map((card, index) => {
-    //   if (index === cardIndex) {
-    //     return {
-    //       ...card,
-    //       state: 'default'
-    //     };
-    //   }
-    //   return card;
-    // });
   }
 
   trackByFn(index, item) {

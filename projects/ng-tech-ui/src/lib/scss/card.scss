@@ -7,6 +7,21 @@ $tech-ui-card-overflow: hidden !default;
 $tech-ui-card-display: flex !default;
 $tech-ui-card-flex-direction: column !default;
 $tech-ui-card-flex-justify-content: start !default;
+$tech-ui-card-border: 1px solid #fff !default;
+$tech-ui-card-focused-box-shadow: 0 0 20px #d4dbe9 !default;
+$tech-ui-card-focused-transition: box-shadow .15s ease-out !default;
+$tech-ui-card-validated-transition: background .15s ease-out !default;
+$tech-ui-card-validated-background: #D1F0E6 !default;
+$tech-ui-card-invalidated-transition: background .15s ease-out !default;
+$tech-ui-card-invalidated-background: #F0D5EA !default;
+$tech-ui-card-disabled-transition: background .15s ease-out !default;
+$tech-ui-card-disabled-content: '' !default;
+$tech-ui-card-disabled-position: absolute !default;
+$tech-ui-card-disabled-top: 0 !default;
+$tech-ui-card-disabled-left: 0 !default;
+$tech-ui-card-disabled-width: 100% !default;
+$tech-ui-card-disabled-height: 100% !default;
+$tech-ui-card-disabled-background: rgba(255, 255, 255, .6) !default;
 
 // Card header
 $tech-ui-card-header-display: block !default;
@@ -16,6 +31,7 @@ $tech-ui-card-header-border-bottom: 1px solid #e9ecef !default;
 // Card body
 $tech-ui-card-body-padding: 1em !default;
 $tech-ui-card-body-display: block !default;
+$tech-ui-card-body-flex-grow: 1 !default;
 
 // Card footer
 $tech-ui-card-footer-display: block !default;
@@ -25,7 +41,7 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
 .tech-ui-card {
   position: $tech-ui-card-position;
   background: $tech-ui-card-background;
-  border: 1px solid #fff;
+  border: $tech-ui-card-border;
   border-radius: $tech-ui-card-border-radius;
   box-shadow: $tech-ui-card-box-shadow;
   overflow: $tech-ui-card-overflow;
@@ -34,16 +50,28 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
   justify-content: $tech-ui-card-flex-justify-content;
 
   &.focused {
+    box-shadow: $tech-ui-card-focused-box-shadow;
+    transition: $tech-ui-card-focused-transition;
   }
   &.clicked {
   }
   &.validated {
-    transition: background .15s ease-out;
-    background: #D1F0E6;
+    transition: $tech-ui-card-validated-transition;
+    background: $tech-ui-card-validated-background;
   }
   &.invalidated {
-    transition: background .15s ease-out;
-    background: #F0D5EA;
+    transition: $tech-ui-card-invalidated-transition;
+    background: $tech-ui-card-invalidated-background;
+  }
+  &.disabled::after {
+    transition: $tech-ui-card-disabled-transition;
+    content: $tech-ui-card-disabled-content;
+    position: $tech-ui-card-disabled-position;
+    top: $tech-ui-card-disabled-top;
+    left: $tech-ui-card-disabled-left;
+    width: $tech-ui-card-disabled-width;
+    height: $tech-ui-card-disabled-height;
+    background: $tech-ui-card-disabled-background;
   }
 }
 
@@ -61,7 +89,7 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
 .tech-ui-card-body {
   padding: $tech-ui-card-body-padding;
   display: $tech-ui-card-body-display;
-  flex-grow: 1;
+  flex-grow: $tech-ui-card-body-flex-grow;
 
   &.focused {
   }

@@ -1,21 +1,22 @@
 @import "global";
 $tech-ui-body-background: #f3f5f9 !default;
-$tech-ui-h1-font-weight: 700 !default;
+$tech-ui-h1-font-weight: 400 !default;
 $tech-ui-h1-font-size: 3em !default;
 $tech-ui-h1-margin: 0 !default;
 $tech-ui-h1-padding: 0 !default;
-$tech-ui-h2-font-weight: 700 !default;
+$tech-ui-h2-font-weight: 400 !default;
 $tech-ui-h2-font-size: 2.5em !default;
 $tech-ui-h2-margin: 0 !default;
 $tech-ui-h2-padding: 0 !default;
-$tech-ui-h3-font-weight: 700 !default;
+$tech-ui-h3-font-weight: 400 !default;
 $tech-ui-h3-font-size: 2em !default;
 $tech-ui-h3-margin: 0 !default;
 $tech-ui-h3-padding: 0 !default;
-$tech-ui-h4-font-weight: 700 !default;
+$tech-ui-h4-font-weight: 400 !default;
 $tech-ui-h4-font-size: 1.5em !default;
 $tech-ui-h4-margin: 0 !default;
 $tech-ui-h4-padding: 0 !default;
+$tech-ui-link-font-color: $tech-ui-font-color !default;
 
 html, body {
   font-family: $tech-ui-font-family;
@@ -55,3 +56,32 @@ h4 {
   margin: $tech-ui-h4-margin;
   padding: $tech-ui-h4-padding;
 }
+
+a {
+  color: $tech-ui-link-font-color;
+}
+
+hr {
+  border: none;
+  color: #ececec;
+  background-color: #ececec;
+  height: 1px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  ul {
+    margin-left: 1em;
+  }
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.fluid {
+  width: 100%;
+}
+

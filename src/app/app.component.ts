@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
+    <app-typography-demo></app-typography-demo>
     <app-card-demo></app-card-demo>
     <app-form-demo></app-form-demo>
   `,
