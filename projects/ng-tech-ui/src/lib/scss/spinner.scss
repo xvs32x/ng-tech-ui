@@ -34,15 +34,15 @@ Changed version of http://github.danielcardoso.net/load-awesome/animations/ball-
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 10em;
-    height: 10em;
+    width: 10rem;
+    height: 10rem;
 
     & > div {
       background-color: currentColor;
       border: 0 solid currentColor;
       box-sizing: border-box;
-      width: 10em;
-      height: 10em;
+      width: 10rem;
+      height: 10rem;
       position: absolute;
       top: 0;
       left: 0;

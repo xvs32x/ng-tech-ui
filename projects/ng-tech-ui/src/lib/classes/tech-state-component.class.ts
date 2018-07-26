@@ -46,7 +46,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('mouseover', ['$event']) onMouseOver(e?) {
-    if (e && (this.isFrozenState || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (this.isFrozenState || this.state === STATE_DISABLED || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -56,7 +56,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('mouseleave', ['$event']) onMouseLeave(e?) {
-    if (e && (this.isFrozenState || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (this.isFrozenState || this.state === STATE_DISABLED || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -66,7 +66,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('click', ['$event']) onClick(e?) {
-    if (e && (this.isFrozenState || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (this.isFrozenState || this.state === STATE_DISABLED || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {
@@ -76,7 +76,7 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('onblur', ['$event']) onBlur(e?) {
-    if (e && (this.isFrozenState || this.state === STATE_LOADING)) {
+    if (e && (this.isFrozenState || this.state === STATE_DISABLED || this.state === STATE_LOADING)) {
       return;
     }
     if (e) {

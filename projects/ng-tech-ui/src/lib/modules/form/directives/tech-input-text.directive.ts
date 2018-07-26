@@ -13,8 +13,8 @@ export class TechInputTextDirective extends TechStateComponentClass implements A
   }
 
   ngAfterViewInit() {
-    this.el.nativeElement.onblur = () => {
-      this.onBlur();
+    this.el.nativeElement.onblur = (e) => {
+      this.onBlur(e);
     };
   }
 

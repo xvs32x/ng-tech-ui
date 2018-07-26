@@ -13,8 +13,8 @@ export class TechButtonPrimaryDirective extends TechStateComponentClass implemen
   }
 
   ngAfterViewInit() {
-    this.el.nativeElement.onblur = () => {
-      this.onBlur();
+    this.el.nativeElement.onblur = (e) => {
+      this.onBlur(e);
     };
   }
 

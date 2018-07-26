@@ -11,9 +11,8 @@ import { Component, OnInit } from '@angular/core';
       <div
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
-        [fxFlex.lg]="'calc(25%-2em)'"
-        style="margin: 1em;"
+        [fxFlex.md]="'calc(25%-2em)'"
+        class="demo-box"
       >
         <h1>H1 title</h1>
         <h2>H2 title</h2>
@@ -23,9 +22,8 @@ import { Component, OnInit } from '@angular/core';
       <div
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
-        [fxFlex.lg]="'calc(25%-2em)'"
-        style="margin: 1em;"
+        [fxFlex.md]="'calc(25%-2em)'"
+        class="demo-box"
       >
         <h1 class="font-bold">H1 title</h1>
         <h2 class="font-bold">H2 title</h2>
@@ -35,9 +33,8 @@ import { Component, OnInit } from '@angular/core';
       <div
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
-        [fxFlex.lg]="'calc(25%-2em)'"
-        style="margin: 1em;"
+        [fxFlex.md]="'calc(25%-2em)'"
+        class="demo-box"
       >
         <ul>
           <li>List item 1</li>
@@ -62,10 +59,28 @@ import { Component, OnInit } from '@angular/core';
       <div
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
-        [fxFlex.lg]="'calc(25%-2em)'"
-        style="margin: 1em;"
+        [fxFlex.md]="'calc(25%-2em)'"
+        class="demo-box"
       >
+        <ol>
+          <li>List item 1</li>
+          <li>List item 2</li>
+          <li>
+            List item 3
+            <ul>
+              <li>Child item 1</li>
+              <li>
+                Child item 2
+                <ul>
+                  <li>Child item 1</li>
+                  <li>Child item 2</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>List item 4</li>
+          <li>List item 5</li>
+        </ol>
       </div>
     </div>
   `

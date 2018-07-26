@@ -11,13 +11,15 @@ import { TechButtonModule } from '../../projects/ng-tech-ui/src/lib/modules/butt
 import { TechFormModule } from '../../projects/ng-tech-ui/src/lib/modules/form/tech-form.module';
 import { TechSpinnerModule } from '../../projects/ng-tech-ui/src/lib/modules/spinner/tech-spinner.module';
 import { TypographyDemoComponent } from './components/typography-demo';
+import { ButtonDemoComponent } from './components/button-demo';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardDemoComponent,
     FormDemoComponent,
-    TypographyDemoComponent
+    TypographyDemoComponent,
+    ButtonDemoComponent
   ],
   imports: [
     BrowserModule,

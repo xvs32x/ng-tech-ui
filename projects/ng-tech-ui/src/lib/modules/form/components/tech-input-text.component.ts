@@ -6,8 +6,10 @@ import { TechStateComponentClass } from '../../../classes/tech-state-component.c
 @Component({
   selector: 'tech-input-text',
   template: `
-    <input *ngIf="type === 'text' || type === 'password'" #child [placeholder]="placeholder" [type]="type" techInputText/>
-    <textarea *ngIf="type === 'textarea'" #child [placeholder]="placeholder" techInputText></textarea>
+    <input *ngIf="type === 'text' || type === 'password'" #child
+           [placeholder]="placeholder" [type]="type" [state]="state" [isFrozenState]="isFrozenState" techInputText/>
+    <textarea *ngIf="type === 'textarea'" #child
+              [placeholder]="placeholder" [state]="state" [isFrozenState]="isFrozenState" techInputText></textarea>
   `
 })
 

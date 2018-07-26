@@ -13,8 +13,8 @@ export class TechButtonDirective extends TechStateComponentClass implements Afte
   }
 
   ngAfterViewInit() {
-    this.el.nativeElement.onblur = () => {
-      this.onBlur();
+    this.el.nativeElement.onblur = (e) => {
+      this.onBlur(e);
     };
   }
 

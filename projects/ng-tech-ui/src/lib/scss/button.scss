@@ -1,28 +1,39 @@
 // Default
-$tech-ui-button-font-size: .9em !default;
+$tech-ui-button-font-size: .9rem !default;
 $tech-ui-button-font-weight: 400 !default;
-$tech-ui-button-line-height: .8em !default;
-$tech-ui-button-padding: 1em !default;
+$tech-ui-button-line-height: 2.8 !default;
+$tech-ui-button-padding: 0 1rem !default;
 $tech-ui-button-border: 1px solid #f8f9fa !default;
-$tech-ui-button-border-radius: .3em !default;
+$tech-ui-button-border-radius: .3rem !default;
 $tech-ui-button-box-shadow: none !default;
 $tech-ui-button-background: #f8f9fa !default;
 $tech-ui-button-color: #262a2e !default;
-$tech-ui-button-focused-transition: background .15s ease-out !default;
+$tech-ui-button-position: relative !default;
+$tech-ui-button-focused-transition: .15s ease-out !default;
 $tech-ui-button-focused-background: #e2e6ea !default;
+$tech-ui-button-focused-border: 1px solid #e2e6ea !default;
 $tech-ui-button-clicked-transition: box-shadow .15s ease-out !default;
 $tech-ui-button-clicked-box-shadow: 0 0 0 3px rgba(6, 96, 197, 0.5) !default;
 $tech-ui-button-clicked-cursor: pointer !default;
 $tech-ui-button-clicked-outline: none;
+$tech-ui-button-disabled-transition: background .15s ease-out !default;
+$tech-ui-button-disabled-content: '' !default;
+$tech-ui-button-disabled-position: absolute !default;
+$tech-ui-button-disabled-top: 0 !default;
+$tech-ui-button-disabled-left: 0 !default;
+$tech-ui-button-disabled-width: 100% !default;
+$tech-ui-button-disabled-height: 100% !default;
+$tech-ui-button-disabled-background: rgba(255, 255, 255, .6) !default;
 // Primary
-$tech-ui-button-primary-font-size: .9em !default;
+$tech-ui-button-primary-font-size: .9rem !default;
 $tech-ui-button-primary-font-weight: 400 !default;
-$tech-ui-button-primary-line-height: .8em !default;
-$tech-ui-button-primary-padding: 1em !default;
+$tech-ui-button-primary-line-height: 2.8 !default;
+$tech-ui-button-primary-padding: 0 1rem !default;
 $tech-ui-button-primary-border: 1px solid #2563c8 !default;
-$tech-ui-button-primary-border-radius: .3em !default;
+$tech-ui-button-primary-border-radius: .3rem !default;
 $tech-ui-button-primary-box-shadow: none !default;
 $tech-ui-button-primary-background: #2563c8 !default;
+$tech-ui-button-primary-border: 1px solid #2563c8 !default;
 $tech-ui-button-primary-color: #fff !default;
 $tech-ui-button-primary-focused-transition: background .15s ease-out !default;
 $tech-ui-button-primary-focused-background: #253b92 !default;
@@ -30,6 +41,14 @@ $tech-ui-button-primary-clicked-transition: box-shadow .15s ease-out !default;
 $tech-ui-button-primary-clicked-box-shadow: 0 0 0 3px rgba(6, 96, 197, 0.5) !default;
 $tech-ui-button-primary-clicked-cursor: pointer !default;
 $tech-ui-button-primary-clicked-outline: none;
+$tech-ui-button-primary-disabled-transition: background .15s ease-out !default;
+$tech-ui-button-primary-disabled-content: '' !default;
+$tech-ui-button-primary-disabled-position: absolute !default;
+$tech-ui-button-primary-disabled-top: 0 !default;
+$tech-ui-button-primary-disabled-left: 0 !default;
+$tech-ui-button-primary-disabled-width: 100% !default;
+$tech-ui-button-primary-disabled-height: 100% !default;
+$tech-ui-button-primary-disabled-background: rgba(255, 255, 255, .6) !default;
 
 .tech-ui-button {
   cursor: $tech-ui-button-clicked-cursor;
@@ -43,14 +62,40 @@ $tech-ui-button-primary-clicked-outline: none;
   border: $tech-ui-button-border;
   border-radius: $tech-ui-button-border-radius;
   box-shadow: $tech-ui-button-box-shadow;
+  position: $tech-ui-button-position;
+  overflow: hidden;
 
   &.focused {
     transition: $tech-ui-button-focused-transition;
     background: $tech-ui-button-focused-background;
+    border: $tech-ui-button-focused-border;
   }
   &.clicked {
     transition: $tech-ui-button-clicked-transition;
     box-shadow: $tech-ui-button-clicked-box-shadow;
+  }
+  &.validated {
+    transition: .15s ease-out;
+    background: #cdede3;
+    border: 1px solid #cdede3;
+  }
+  &.invalidated {
+    transition: .15s ease-out;
+    background: #ebd0e5;
+    border: 1px solid #ebd0e5;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    &::after {
+      transition: $tech-ui-button-disabled-transition;
+      content: $tech-ui-button-disabled-content;
+      position: $tech-ui-button-disabled-position;
+      top: $tech-ui-button-disabled-top;
+      left: $tech-ui-button-disabled-left;
+      width: $tech-ui-button-disabled-width;
+      height: $tech-ui-button-disabled-height;
+      background: $tech-ui-button-disabled-background;
+    }
   }
   &::-moz-focus-inner {
     border: 0;
@@ -69,14 +114,40 @@ $tech-ui-button-primary-clicked-outline: none;
   border: $tech-ui-button-primary-border;
   border-radius: $tech-ui-button-primary-border-radius;
   box-shadow: $tech-ui-button-primary-box-shadow;
+  position: relative;
+  overflow: hidden;
 
   &.focused {
     transition: $tech-ui-button-primary-focused-transition;
     background: $tech-ui-button-primary-focused-background;
+    border: $tech-ui-button-primary-border;
   }
   &.clicked {
     transition: $tech-ui-button-primary-clicked-transition;
     box-shadow: $tech-ui-button-primary-clicked-box-shadow;
+  }
+  &.validated {
+    transition: .15s ease-out;
+    background: #04C891;
+    border: 1px solid #04C891;
+  }
+  &.invalidated {
+    transition: .15s ease-out;
+    background: #C84866;
+    border: 1px solid #C84866;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    &::after {
+      transition: $tech-ui-button-primary-disabled-transition;
+      content: $tech-ui-button-primary-disabled-content;
+      position: $tech-ui-button-primary-disabled-position;
+      top: $tech-ui-button-primary-disabled-top;
+      left: $tech-ui-button-primary-disabled-left;
+      width: $tech-ui-button-primary-disabled-width;
+      height: $tech-ui-button-primary-disabled-height;
+      background: $tech-ui-button-primary-disabled-background;
+    }
   }
   &::-moz-focus-inner {
     border: 0;

@@ -16,34 +16,16 @@ import { tap } from 'rxjs/internal/operators';
       <hr>
     </div>
     <div [fxLayout]="'row wrap'">
-      <!-- Simple card -->
-      <tech-card
-        [fxFlex.xs]="'100%'"
-        [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
-        [fxFlex.lg]="'calc(25%-2em)'"
-        style="margin: 1em;"
-      >
-        <tech-card-header>
-          <h4>Card title...</h4>
-        </tech-card-header>
-        <tech-card-body>
-          Card body...
-        </tech-card-body>
-        <tech-card-footer>
-          Card footer...
-        </tech-card-footer>
-      </tech-card>
       <!-- Card with body and buttons -->
       <tech-card
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
         [fxFlex.md]="'calc(33%-2em)'"
         [fxFlex.lg]="'calc(25%-2em)'"
-        style="margin: 1em;"
+        class="demo-box"
       >
         <tech-card-header>
-          <h4>Card with link</h4>
+          <h4>Default card with link</h4>
         </tech-card-header>
         <tech-card-body>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -58,7 +40,7 @@ import { tap } from 'rxjs/internal/operators';
         [fxFlex.sm]="'calc(50%-2em)'"
         [fxFlex.md]="'calc(33%-2em)'"
         [fxFlex.lg]="'calc(25%-2em)'"
-        style="margin: 1em;"
+        class="demo-box"
       >
         <tech-card-header>
           <h4>Card for login form</h4>
@@ -83,46 +65,133 @@ import { tap } from 'rxjs/internal/operators';
           </div>
         </tech-card-body>
         <tech-card-footer>
-          <button class="fluid" techButtonPrimary>Sign in</button>
+          <div [fxLayout]="'row'" fxLayoutGap="1em">
+            <button class="fluid" techButtonPrimary>Sign in</button>
+            <button class="fluid" techButton>Sign up</button>
+          </div>
         </tech-card-footer>
       </tech-card>
-      <!-- Card with states switch -->
+      <!-- Card with validated state-->
       <tech-card
-        [isFrozenState]="true"
-        [state]="cardState" [isSpinnerCancelable]="true" [OnSpinnerCancel]="onLoadingCanceled"
+        state="validated" [isFrozenState]="true"
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
         [fxFlex.md]="'calc(33%-2em)'"
         [fxFlex.lg]="'calc(25%-2em)'"
-        style="margin: 1em;"
+        class="demo-box"
       >
         <tech-card-header>
-          <h4>Card with states switch</h4>
+          <h4>Card with validated state</h4>
         </tech-card-header>
         <tech-card-body>
-          <!--States toggle-->
-          <div [fxLayout]="'row wrap'">
-            <div [fxFlex]="'calc(50%-1em)'">
-              <ng-container *ngFor="let item of inputStates; let i = index">
-                <tech-form-radio-component
-                  *ngIf="inputStates.length / 2 >= i"
-                  [model]="cardState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">
-                  {{item.label}}
-                </tech-form-radio-component>
-              </ng-container>
+          <!--Login-->
+          <div [fxLayout]="'column'">
+            <div [fxFlex]="'calc(100%-1em)'">
+              <tech-input-text
+                state="validated"
+                [isFrozenState]="true"
+                [placeholder]="'Enter email'"
+              ></tech-input-text>
             </div>
-            <div [fxFlex]="'calc(50%-1em)'">
-              <ng-container *ngFor="let item of inputStates; trackBy: trackByFn; let i = index">
-                <tech-form-radio-component
-                  *ngIf="inputStates.length / 2 < i"
-                  [model]="cardState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">
-                  {{item.label}}
-                </tech-form-radio-component>
-              </ng-container>
+          </div>
+          <!--Password-->
+          <div [fxLayout]="'column'">
+            <div [fxFlex]="'calc(100%-1em)'" style="margin-top: 1em;">
+              <tech-input-text
+                state="validated"
+                [isFrozenState]="true"
+                type="password"
+                [placeholder]="'Enter password'"
+              ></tech-input-text>
             </div>
           </div>
         </tech-card-body>
+        <tech-card-footer>
+          <div [fxLayout]="'row'" fxLayoutGap="1em">
+            <button class="fluid" state="validated" [isFrozenState]="true" techButtonPrimary>Sign in</button>
+            <button class="fluid" state="validated" [isFrozenState]="true" techButton>Sign up</button>
+          </div>
+        </tech-card-footer>
       </tech-card>
+      <!-- Card with invalidated state-->
+      <tech-card
+        state="invalidated" [isFrozenState]="true"
+        [fxFlex.xs]="'100%'"
+        [fxFlex.sm]="'calc(50%-2em)'"
+        [fxFlex.md]="'calc(33%-2em)'"
+        [fxFlex.lg]="'calc(25%-2em)'"
+        class="demo-box"
+      >
+        <tech-card-header>
+          <h4>Card with invalidated state</h4>
+        </tech-card-header>
+        <tech-card-body>
+          <!--Login-->
+          <div [fxLayout]="'column'">
+            <div [fxFlex]="'calc(100%-1em)'">
+              <tech-input-text
+                state="invalidated"
+                [isFrozenState]="true"
+                [placeholder]="'Enter email'"
+              ></tech-input-text>
+            </div>
+          </div>
+          <!--Password-->
+          <div [fxLayout]="'column'">
+            <div [fxFlex]="'calc(100%-1em)'" style="margin-top: 1em;">
+              <tech-input-text
+                state="invalidated"
+                [isFrozenState]="true"
+                type="password"
+                [placeholder]="'Enter password'"
+              ></tech-input-text>
+            </div>
+          </div>
+        </tech-card-body>
+        <tech-card-footer>
+          <div [fxLayout]="'row'" fxLayoutGap="1em">
+            <button class="fluid" state="invalidated" [isFrozenState]="true" techButtonPrimary>Sign in</button>
+            <button class="fluid" state="invalidated" [isFrozenState]="true" techButton>Sign up</button>
+          </div>
+        </tech-card-footer>
+      </tech-card>
+      <!-- Card with states switch -->
+      <!--<tech-card-->
+        <!--[isFrozenState]="true"-->
+        <!--[state]="cardState" [isSpinnerCancelable]="true" [OnSpinnerCancel]="onLoadingCanceled"-->
+        <!--[fxFlex.xs]="'100%'"-->
+        <!--[fxFlex.sm]="'calc(50%-2em)'"-->
+        <!--[fxFlex.md]="'calc(33%-2em)'"-->
+        <!--[fxFlex.lg]="'calc(25%-2em)'"-->
+        <!--class="demo-box"-->
+      <!--&gt;-->
+        <!--<tech-card-header>-->
+          <!--<h4>Card with states switch</h4>-->
+        <!--</tech-card-header>-->
+        <!--<tech-card-body>-->
+          <!--&lt;!&ndash;States toggle&ndash;&gt;-->
+          <!--<div [fxLayout]="'row wrap'">-->
+            <!--<div [fxFlex]="'calc(50%-1em)'">-->
+              <!--<ng-container *ngFor="let item of inputStates; let i = index">-->
+                <!--<tech-form-radio-component-->
+                  <!--*ngIf="inputStates.length / 2 >= i"-->
+                  <!--[model]="cardState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">-->
+                  <!--{{item.label}}-->
+                <!--</tech-form-radio-component>-->
+              <!--</ng-container>-->
+            <!--</div>-->
+            <!--<div [fxFlex]="'calc(50%-1em)'">-->
+              <!--<ng-container *ngFor="let item of inputStates; trackBy: trackByFn; let i = index">-->
+                <!--<tech-form-radio-component-->
+                  <!--*ngIf="inputStates.length / 2 < i"-->
+                  <!--[model]="cardState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">-->
+                  <!--{{item.label}}-->
+                <!--</tech-form-radio-component>-->
+              <!--</ng-container>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</tech-card-body>-->
+      <!--</tech-card>-->
     </div>`
 })
 export class CardDemoComponent implements OnInit, OnDestroy {
