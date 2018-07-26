@@ -20,7 +20,6 @@ import { tap } from 'rxjs/internal/operators';
       <tech-card
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
         [fxFlex.lg]="'calc(25%-2em)'"
         class="demo-box"
       >
@@ -38,7 +37,6 @@ import { tap } from 'rxjs/internal/operators';
       <tech-card
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
         [fxFlex.lg]="'calc(25%-2em)'"
         class="demo-box"
       >
@@ -76,7 +74,6 @@ import { tap } from 'rxjs/internal/operators';
         state="validated" [isFrozenState]="true"
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
         [fxFlex.lg]="'calc(25%-2em)'"
         class="demo-box"
       >
@@ -118,7 +115,6 @@ import { tap } from 'rxjs/internal/operators';
         state="invalidated" [isFrozenState]="true"
         [fxFlex.xs]="'100%'"
         [fxFlex.sm]="'calc(50%-2em)'"
-        [fxFlex.md]="'calc(33%-2em)'"
         [fxFlex.lg]="'calc(25%-2em)'"
         class="demo-box"
       >
