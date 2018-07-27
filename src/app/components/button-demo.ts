@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
       <h3>Button</h3>
       <hr>
     </div>
-    <div [fxLayout]="'row wrap'">
+    <div fxLayout="row wrap">
       <div class="demo-box"><button techButton>Default</button></div>
       <div class="demo-box">
         <button techButton state="focused" [isFrozenState]="true">Default Focused</button>
@@ -24,7 +24,7 @@ import { Component, OnInit } from '@angular/core';
         <button class="fluid font-bold" techButton>Default Bold Fluid</button>
       </div>
     </div>
-    <div [fxLayout]="'row wrap'">
+    <div fxLayout="row wrap">
       <div class="demo-box"><button techButtonPrimary>Primary</button></div>
       <div class="demo-box">
         <button techButtonPrimary state="focused" [isFrozenState]="true">Primary Focused</button>

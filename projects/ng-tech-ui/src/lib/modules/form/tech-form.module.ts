@@ -9,6 +9,7 @@ import { TechInputSelectComponet } from './components/tech-input-select.componet
 import { TechFormRadioComponent } from './components/tech-form-radio.components';
 import { TechFormRadioLabelDirective } from './directives/tech-form-radio-label.directive';
 import { TechFormLabelDirective } from './directives/tech-form-label.directive';
+import { TechFormInputBackgroundDirective } from './directives/tech-form-input-background';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { TechFormLabelDirective } from './directives/tech-form-label.directive';
     TechFormLabelDirective,
     TechTextareaDirective,
     TechInputSelectComponet,
+    TechFormInputBackgroundDirective
   ],
   declarations: [
     TechFormRadioComponent,
@@ -33,6 +35,7 @@ import { TechFormLabelDirective } from './directives/tech-form-label.directive';
     TechFormLabelDirective,
     TechTextareaDirective,
     TechInputSelectComponet,
+    TechFormInputBackgroundDirective
   ],
   providers: [],
 })

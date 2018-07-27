@@ -151,57 +151,10 @@ import { tap } from 'rxjs/internal/operators';
           </div>
         </tech-card-footer>
       </tech-card>
-      <!-- Card with states switch -->
-      <!--<tech-card-->
-        <!--[isFrozenState]="true"-->
-        <!--[state]="cardState" [isSpinnerCancelable]="true" [OnSpinnerCancel]="onLoadingCanceled"-->
-        <!--[fxFlex.xs]="'100%'"-->
-        <!--[fxFlex.sm]="'calc(50%-2em)'"-->
-        <!--[fxFlex.md]="'calc(33%-2em)'"-->
-        <!--[fxFlex.lg]="'calc(25%-2em)'"-->
-        <!--class="demo-box"-->
-      <!--&gt;-->
-        <!--<tech-card-header>-->
-          <!--<h4>Card with states switch</h4>-->
-        <!--</tech-card-header>-->
-        <!--<tech-card-body>-->
-          <!--&lt;!&ndash;States toggle&ndash;&gt;-->
-          <!--<div [fxLayout]="'row wrap'">-->
-            <!--<div [fxFlex]="'calc(50%-1em)'">-->
-              <!--<ng-container *ngFor="let item of inputStates; let i = index">-->
-                <!--<tech-form-radio-component-->
-                  <!--*ngIf="inputStates.length / 2 >= i"-->
-                  <!--[model]="cardState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">-->
-                  <!--{{item.label}}-->
-                <!--</tech-form-radio-component>-->
-              <!--</ng-container>-->
-            <!--</div>-->
-            <!--<div [fxFlex]="'calc(50%-1em)'">-->
-              <!--<ng-container *ngFor="let item of inputStates; trackBy: trackByFn; let i = index">-->
-                <!--<tech-form-radio-component-->
-                  <!--*ngIf="inputStates.length / 2 < i"-->
-                  <!--[model]="cardState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">-->
-                  <!--{{item.label}}-->
-                <!--</tech-form-radio-component>-->
-              <!--</ng-container>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</tech-card-body>-->
-      <!--</tech-card>-->
     </div>`
 })
 export class CardDemoComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
-  cardState = STATE_DEFAULT;
-  inputStates = [
-    {name: STATE_DEFAULT, label: 'Default'},
-    {name: STATE_FOCUSED, label: 'Focused'},
-    {name: STATE_VALIDATED, label: 'Validated'},
-    {name: STATE_INVALIDATED, label: 'Invalidated'},
-    {name: STATE_CLICKED, label: 'Clicked'},
-    {name: STATE_DISABLED, label: 'Disabled'},
-    {name: STATE_LOADING, label: 'Loading'},
-  ];
   onLoadingCanceled: EventEmitter<any> = new EventEmitter();
 
   constructor() {
@@ -218,10 +171,6 @@ export class CardDemoComponent implements OnInit, OnDestroy {
 
   sayThanks() {
     alert('Thank you! :)');
-  }
-
-  onInputTextStateChange(state) {
-    this.cardState = state;
   }
 
   trackByFn(index, item) {
