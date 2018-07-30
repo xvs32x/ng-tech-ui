@@ -76,9 +76,10 @@ import {
               <div fxFlex="calc(25%-1em)" [ngStyle.gt-xs]="{'text-align': 'right'}">
                 <label techFormLabel>Your plan:</label>
               </div>
-              <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1em)" [state]="inputTextState" techFormInputBackground>
+              <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1em)"  techFormInputBackground>
                   <tech-form-radio-component
                     *ngFor="let item of formPlans"
+                    [state]="inputTextState"
                     [model]="formPlan" [name]="item.name" (OnModelChange)="onFormPlanChange($event)">
                     {{item.label}}
                   </tech-form-radio-component>

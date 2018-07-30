@@ -1,6 +1,5 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
-import { STATE_CLICKED } from '../../../constants/tech-state';
 
 
 @Directive({
@@ -11,16 +10,6 @@ export class TechFormLabelDirective extends TechStateComponentClass {
   constructor(public el: ElementRef) {
     super(el);
     this.el.nativeElement.classList.add('tech-ui-form-label', 'default');
-  }
-
-  @HostListener('click', ['$event']) onClick(e?) {
-    if (e && !this.isFrozenState && this.state === STATE_CLICKED) {
-      return;
-    }
-    if (e) {
-      this.OnClick.next(e);
-    }
-    this.switchState(STATE_CLICKED);
   }
 
 }

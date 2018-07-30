@@ -55,6 +55,10 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   background: #E8EBF4;
   padding: .6rem;
   border-radius: 3px;
+  outline: 0;
+  position: relative;
+  user-select: none;
+  overflow: hidden;
 
   &.clicked {
     transition: $tech-ui-form-input-clicked-transition;
@@ -136,6 +140,7 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   box-shadow: $tech-ui-form-radio-box-shadow;
   padding: $tech-ui-form-radio-padding;
   margin: $tech-ui-form-radio-margin;
+  user-select: none;
 
   &.focused {
     transition: $tech-ui-form-radio-focused-transition;
