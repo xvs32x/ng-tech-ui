@@ -8,8 +8,8 @@ $tech-ui-form-radio-label-padding: 0 0 0 1.66rem !default;
 $tech-ui-form-radio-label-margin: -.1rem 0 0 0 !default;
 $tech-ui-form-radio-label-outline: none !default;
 $tech-ui-form-label-display: inline-block !default;
-$tech-ui-form-label-font-size: 1.1rem !default;
-$tech-ui-form-label-padding: .4rem 0 .2rem 0 !default;
+$tech-ui-form-label-font-size: 1rem !default;
+$tech-ui-form-label-padding: .6rem 0 .2rem 0 !default;
 // Form radio
 $tech-ui-form-radio-display: block !default;
 $tech-ui-form-radio-background: #dde1ea !default;
@@ -55,7 +55,12 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   background: #E8EBF4;
   padding: .6rem;
   border-radius: 3px;
-  outline: none;
+  outline: 0;
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+  display: block;
+  cursor: text;
 
   &.clicked {
     transition: $tech-ui-form-input-clicked-transition;
@@ -87,38 +92,34 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   }
 }
 
-.tech-ui-form-input {
-  padding: $tech-ui-form-input-padding;
-  border: $tech-ui-form-input-border;
-  width: $tech-ui-form-input-width;
-  outline: $tech-ui-form-input-outline;
-  background: $tech-ui-form-input-background;
-  border-radius: $tech-ui-form-input-border-radius;
-  cursor: $tech-ui-form-input-cursor;
-  font-size: $tech-ui-form-input-font-size;
+.tech-ui-form-input-text {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  position: relative;
+  top: -1px;
+  line-height: 1.2;
+  height: 1.3rem;
+  font-size: 1rem;
+}
 
-  &.clicked {
-    transition: $tech-ui-form-input-clicked-transition;
-    background: $tech-ui-form-input-clicked-background;
-    border: $tech-ui-form-input-clicked-border;
-  }
-  &.validated {
-    transition: $tech-ui-form-input-validated-transition;
-    background: $tech-ui-form-input-validated-background;
-    border: $tech-ui-form-input-validated-border;
-  }
-  &.invalidated {
-    transition: $tech-ui-form-input-invalidated-transition;
-    background: $tech-ui-form-input-invalidated-background;
-    border: $tech-ui-form-input-invalidated-border;
-  }
-  &.disabled {
-    transition: $tech-ui-form-input-disabled-transition;
-    background: $tech-ui-form-input-disabled-background;
-    border: $tech-ui-form-input-disabled-border;
-    cursor: $tech-ui-form-input-disabled-cursor;
-    opacity: .7;
-  }
+.tech-ui-form-input-textarea {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  position: relative;
+  top: -1px;
+  line-height: 1.4;
+  min-height: 1.3rem;
+  height: 1.3rem;
+  font-size: 1rem;
+  resize: vertical;
 }
 
 .tech-ui-form-label {
@@ -137,6 +138,7 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   box-shadow: $tech-ui-form-radio-box-shadow;
   padding: $tech-ui-form-radio-padding;
   margin: $tech-ui-form-radio-margin;
+  user-select: none;
 
   &.focused {
     transition: $tech-ui-form-radio-focused-transition;

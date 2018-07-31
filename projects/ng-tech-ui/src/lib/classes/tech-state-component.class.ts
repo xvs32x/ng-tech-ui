@@ -1,16 +1,31 @@
-import { STATE_CLICKED, STATE_DEFAULT, STATE_DISABLED, STATE_FOCUSED, STATE_LOADING } from '../constants/tech-state';
-import { ElementRef, EventEmitter, HostBinding, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import {
+  STATE_CLICKED,
+  STATE_DEFAULT,
+  STATE_DISABLED,
+  STATE_FOCUSED,
+  STATE_INVALIDATED,
+  STATE_LOADING,
+  STATE_VALIDATED
+} from '../constants/tech-state';
+import { ElementRef, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 export class TechStateComponentClass implements OnChanges {
+  states = [
+    STATE_CLICKED,
+    STATE_DEFAULT,
+    STATE_DISABLED,
+    STATE_FOCUSED,
+    STATE_INVALIDATED,
+    STATE_LOADING,
+    STATE_VALIDATED
+  ];
   @Input() state: string;
   @Input() isFrozenState: boolean;
-  @Input() isSpinnerCancelable: boolean;
-  @Input() spinnerColor: string;
-  @Input() OnSpinnerCancel: EventEmitter<any> = new EventEmitter<any>();
   @Output() OnMouseOver: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnMouseLeave: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnClick: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnBlur: EventEmitter<Event> = new EventEmitter<Event>();
+
   constructor(public el: ElementRef) {
   }
 
@@ -24,7 +39,14 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('mouseover', ['$event']) onMouseOver(e?) {
-    if (e && (this.isFrozenState || this.state === STATE_DISABLED || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (
+      this.isFrozenState ||
+      this.state === STATE_DISABLED ||
+      this.state === STATE_CLICKED ||
+      this.state === STATE_LOADING ||
+      this.state === STATE_VALIDATED ||
+      this.state === STATE_INVALIDATED
+    )) {
       return;
     }
     if (e) {
@@ -34,7 +56,14 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('mouseleave', ['$event']) onMouseLeave(e?) {
-    if (e && (this.isFrozenState || this.state === STATE_DISABLED || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (
+      this.isFrozenState ||
+      this.state === STATE_DISABLED ||
+      this.state === STATE_CLICKED ||
+      this.state === STATE_LOADING ||
+      this.state === STATE_VALIDATED ||
+      this.state === STATE_INVALIDATED
+    )) {
       return;
     }
     if (e) {
@@ -44,7 +73,12 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('click', ['$event']) onClick(e?) {
-    if (e && (this.isFrozenState || this.state === STATE_DISABLED || this.state === STATE_CLICKED || this.state === STATE_LOADING)) {
+    if (e && (
+      this.isFrozenState ||
+      this.state === STATE_DISABLED ||
+      this.state === STATE_CLICKED ||
+      this.state === STATE_LOADING
+    )) {
       return;
     }
     if (e) {
@@ -54,7 +88,11 @@ export class TechStateComponentClass implements OnChanges {
   }
 
   @HostListener('onblur', ['$event']) onBlur(e?) {
-    if (e && (this.isFrozenState || this.state === STATE_DISABLED || this.state === STATE_LOADING)) {
+    if (e && (
+      this.isFrozenState ||
+      this.state === STATE_DISABLED ||
+      this.state === STATE_LOADING
+    )) {
       return;
     }
     if (e) {
@@ -68,7 +106,7 @@ export class TechStateComponentClass implements OnChanges {
     if (state === STATE_CLICKED) {
       this.el.nativeElement.focus();
     }
-    this.el.nativeElement.classList.remove(this.state);
+    this.el.nativeElement.classList.remove(...this.states);
     this.el.nativeElement.classList.add(state);
     this.state = state;
   }

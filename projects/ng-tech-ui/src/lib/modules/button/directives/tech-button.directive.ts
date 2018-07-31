@@ -1,11 +1,11 @@
-import { AfterViewInit, Directive, ElementRef, OnDestroy } from '@angular/core';
-import { TechStateSpinnerComponentClass } from '../../../classes/tech-state-spinner-component.class';
+import { AfterViewInit, Directive, ElementRef } from '@angular/core';
+import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
 
 
 @Directive({
   selector: '[techButton]',
 })
-export class TechButtonDirective extends TechStateSpinnerComponentClass implements AfterViewInit {
+export class TechButtonDirective extends TechStateComponentClass implements AfterViewInit {
 
   constructor(public el: ElementRef) {
     super(el);

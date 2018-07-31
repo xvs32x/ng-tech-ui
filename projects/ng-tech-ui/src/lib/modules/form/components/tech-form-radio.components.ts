@@ -10,7 +10,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
-import { STATE_CLICKED } from '../../../constants/tech-state';
+import { STATE_CLICKED, STATE_DISABLED, STATE_LOADING } from '../../../constants/tech-state';
 
 
 @Component({
@@ -32,15 +32,23 @@ export class TechFormRadioComponent extends TechStateComponentClass implements O
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.model.currentValue === this.name) {
-      this.onClick();
-    } else {
-      this.onMouseLeave();
+    if (changes.model) {
+      if (changes.model.currentValue === this.name) {
+        this.onClick();
+      } else {
+        this.onMouseLeave();
+      }
     }
   }
 
   @HostListener('click', ['$event']) onClick(e?) {
-    if (e && !this.isFrozenState && this.state === STATE_CLICKED) {
+    if (e && (
+      this.isFrozenState ||
+      this.model === this.name ||
+      this.state === STATE_DISABLED ||
+      this.state === STATE_CLICKED ||
+      this.state === STATE_LOADING
+    )) {
       return;
     }
     if (e) {

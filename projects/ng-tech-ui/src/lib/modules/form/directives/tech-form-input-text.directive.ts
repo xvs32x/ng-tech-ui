@@ -3,13 +3,13 @@ import { TechStateComponentClass } from '../../../classes/tech-state-component.c
 
 
 @Directive({
-  selector: '[techButtonPrimary]',
+  selector: '[techFormInputText]',
 })
-export class TechButtonPrimaryDirective extends TechStateComponentClass implements AfterViewInit {
+export class TechFormInputTextDirective extends TechStateComponentClass implements AfterViewInit {
 
   constructor(public el: ElementRef) {
     super(el);
-    this.el.nativeElement.classList.add('tech-ui-button-primary', 'default');
+    this.el.nativeElement.classList.add('tech-ui-form-input-text', 'default');
   }
 
   ngAfterViewInit() {

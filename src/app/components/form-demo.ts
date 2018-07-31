@@ -15,11 +15,11 @@ import {
     </div>
     <!--States toggle-->
     <div fxLayout="row wrap" fxLayout.xs="column">
-      <tech-card class="demo-box" fxFlex="calc(25%-2em)">
+      <tech-card class="demo-box" fxFlex="calc(25%-2rem)">
         <tech-card-header>
           <h4>Switch state in the next form</h4>
         </tech-card-header>
-        <tech-card-body fxLayout="column" fxLayoutGap="1em">
+        <tech-card-body fxLayout="column" fxLayoutGap="1rem">
             <tech-form-radio-component
               *ngFor="let item of inputStates"
               [model]="inputTextState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">
@@ -27,18 +27,18 @@ import {
             </tech-form-radio-component>
         </tech-card-body>
       </tech-card>
-      <tech-card class="demo-box" fxFlex="calc(75%-2em)">
+      <tech-card class="demo-box" fxFlex="calc(75%-2rem)">
         <tech-card-header>
           <h4>Example form</h4>
         </tech-card-header>
         <tech-card-body>
-          <div fxLayout="column" fxLayoutGap.gt-xs="1em">
+          <div fxLayout="column" fxLayoutGap.gt-xs="1rem">
             <!--Email-->
-            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1em">
-              <div fxFlex="calc(25%-1em)" [ngStyle.gt-xs]="{'text-align': 'right'}">
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
+              <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
                 <label techFormLabel>Email:</label>
               </div>
-              <div fxFlex="calc(75%-1em)">
+              <div fxFlex="calc(75%-1rem)">
                 <tech-input-text
                   [state]="inputTextState"
                   [placeholder]="'Enter email'"
@@ -46,11 +46,11 @@ import {
               </div>
             </div>
             <!--Password-->
-            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1em">
-              <div fxFlex="calc(25%-1em)" [ngStyle.gt-xs]="{'text-align': 'right'}">
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
+              <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
                 <label techFormLabel>Password:</label>
               </div>
-              <div fxFlex="calc(75%-1em)">
+              <div fxFlex="calc(75%-1rem)">
                 <tech-input-text
                   type="password"
                   [state]="inputTextState"
@@ -59,11 +59,11 @@ import {
               </div>
             </div>
             <!--Resume-->
-            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1em">
-              <div fxFlex="calc(25%-1em)" [ngStyle.gt-xs]="{'text-align': 'right'}">
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
+              <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
                 <label techFormLabel>Resume:</label>
               </div>
-              <div fxFlex="calc(75%-1em)">
+              <div fxFlex="calc(75%-1rem)">
                 <tech-input-text
                   [type]="'textarea'"
                   [state]="inputTextState"
@@ -72,11 +72,11 @@ import {
               </div>
             </div>
             <!--Plans-->
-            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1em">
-              <div fxFlex="calc(25%-1em)" [ngStyle.gt-xs]="{'text-align': 'right'}">
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
+              <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
                 <label techFormLabel>Your plan:</label>
               </div>
-              <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1em)" [state]="inputTextState" techFormInputBackground>
+              <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1rem)" [state]="inputTextState" techFormInputBackground>
                   <tech-form-radio-component
                     *ngFor="let item of formPlans"
                     [model]="formPlan" [name]="item.name" (OnModelChange)="onFormPlanChange($event)">
