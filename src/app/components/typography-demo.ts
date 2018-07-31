@@ -67,16 +67,16 @@ import { Component, OnInit } from '@angular/core';
           <li>List item 2</li>
           <li>
             List item 3
-            <ul>
+            <ol>
               <li>Child item 1</li>
               <li>
                 Child item 2
-                <ul>
+                <ol>
                   <li>Child item 1</li>
                   <li>Child item 2</li>
-                </ul>
+                </ol>
               </li>
-            </ul>
+            </ol>
           </li>
           <li>List item 4</li>
           <li>List item 5</li>

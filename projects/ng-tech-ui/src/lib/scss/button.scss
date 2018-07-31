@@ -26,6 +26,17 @@ $tech-ui-button-disabled-width: 100% !default;
 $tech-ui-button-disabled-height: 100% !default;
 $tech-ui-button-disabled-background: rgba(255, 255, 255, .6) !default;
 $tech-ui-button-disabled-cursor: not-allowed !default;
+
+$tech-ui-button-loading-transition: background .15s ease-out !default;
+$tech-ui-button-loading-content: '' !default;
+$tech-ui-button-loading-position: absolute !default;
+$tech-ui-button-loading-top: 0 !default;
+$tech-ui-button-loading-left: 0 !default;
+$tech-ui-button-loading-width: 100% !default;
+$tech-ui-button-loading-height: 100% !default;
+$tech-ui-button-loading-background: rgba(255, 255, 255, .6) !default;
+$tech-ui-button-loading-cursor: not-allowed !default;
+
 $tech-ui-button-validated-transition: .15s ease-out !default;
 $tech-ui-button-validated-background: #cdede3 !default;
 $tech-ui-button-validated-border: 1px solid #cdede3 !default;
@@ -43,12 +54,15 @@ $tech-ui-button-primary-box-shadow: none !default;
 $tech-ui-button-primary-background: #2563c8 !default;
 $tech-ui-button-primary-border: 1px solid #2563c8 !default;
 $tech-ui-button-primary-color: #fff !default;
+$tech-ui-button-primary-position: relative !default;
+$tech-ui-button-primary-overflow: hidden !default;
 $tech-ui-button-primary-focused-transition: background .15s ease-out !default;
 $tech-ui-button-primary-focused-background: #253b92 !default;
 $tech-ui-button-primary-clicked-transition: box-shadow .15s ease-out !default;
 $tech-ui-button-primary-clicked-box-shadow: 0 0 0 3px rgba(6, 96, 197, 0.5) !default;
 $tech-ui-button-primary-clicked-cursor: pointer !default;
 $tech-ui-button-primary-clicked-outline: none;
+$tech-ui-button-primary-disabled-cursor: not-allowed !default;
 $tech-ui-button-primary-disabled-transition: background .15s ease-out !default;
 $tech-ui-button-primary-disabled-content: '' !default;
 $tech-ui-button-primary-disabled-position: absolute !default;
@@ -57,6 +71,21 @@ $tech-ui-button-primary-disabled-left: 0 !default;
 $tech-ui-button-primary-disabled-width: 100% !default;
 $tech-ui-button-primary-disabled-height: 100% !default;
 $tech-ui-button-primary-disabled-background: rgba(255, 255, 255, .6) !default;
+$tech-ui-button-primary-loading-cursor: not-allowed !default;
+$tech-ui-button-primary-loading-transition: background .15s ease-out !default;
+$tech-ui-button-primary-loading-content: '' !default;
+$tech-ui-button-primary-loading-position: absolute !default;
+$tech-ui-button-primary-loading-top: 0 !default;
+$tech-ui-button-primary-loading-left: 0 !default;
+$tech-ui-button-primary-loading-width: 100% !default;
+$tech-ui-button-primary-loading-height: 100% !default;
+$tech-ui-button-primary-loading-background: rgba(255, 255, 255, .6) !default;
+$tech-ui-button-primary-validated-transition: .15s ease-out !default;
+$tech-ui-button-primary-validated-background: #04C891 !default;
+$tech-ui-button-primary-validated-border: 1px solid #04C891 !default;
+$tech-ui-button-primary-invalidated-transition: .15s ease-out !default;
+$tech-ui-button-primary-invalidated-background: #C84866 !default;
+$tech-ui-button-primary-invalidated-border: 1px solid #C84866 !default;
 
 .tech-ui-button {
   cursor: $tech-ui-button-clicked-cursor;
@@ -106,16 +135,16 @@ $tech-ui-button-primary-disabled-background: rgba(255, 255, 255, .6) !default;
     }
   }
   &.loading {
-    cursor: $tech-ui-button-disabled-cursor;
+    cursor: $tech-ui-button-loading-cursor;
     &::after {
-      transition: $tech-ui-button-disabled-transition;
-      content: $tech-ui-button-disabled-content;
-      position: $tech-ui-button-disabled-position;
-      top: $tech-ui-button-disabled-top;
-      left: $tech-ui-button-disabled-left;
-      width: $tech-ui-button-disabled-width;
-      height: $tech-ui-button-disabled-height;
-      background: $tech-ui-button-disabled-background;
+      transition: $tech-ui-button-loading-transition;
+      content: $tech-ui-button-loading-content;
+      position: $tech-ui-button-loading-position;
+      top: $tech-ui-button-loading-top;
+      left: $tech-ui-button-loading-left;
+      width: $tech-ui-button-loading-width;
+      height: $tech-ui-button-loading-height;
+      background: $tech-ui-button-loading-background;
     }
   }
   &::-moz-focus-inner {
@@ -135,8 +164,8 @@ $tech-ui-button-primary-disabled-background: rgba(255, 255, 255, .6) !default;
   border: $tech-ui-button-primary-border;
   border-radius: $tech-ui-button-primary-border-radius;
   box-shadow: $tech-ui-button-primary-box-shadow;
-  position: relative;
-  overflow: hidden;
+  position: $tech-ui-button-primary-position;
+  overflow: $tech-ui-button-primary-overflow;
 
   &.focused {
     transition: $tech-ui-button-primary-focused-transition;
@@ -148,17 +177,18 @@ $tech-ui-button-primary-disabled-background: rgba(255, 255, 255, .6) !default;
     box-shadow: $tech-ui-button-primary-clicked-box-shadow;
   }
   &.validated {
-    transition: .15s ease-out;
-    background: #04C891;
-    border: 1px solid #04C891;
+    transition: $tech-ui-button-primary-validated-transition;
+    background: $tech-ui-button-primary-validated-background;
+    border: $tech-ui-button-primary-validated-border;
   }
   &.invalidated {
-    transition: .15s ease-out;
-    background: #C84866;
-    border: 1px solid #C84866;
+    transition: $tech-ui-button-primary-invalidated-transition;
+    background: $tech-ui-button-primary-invalidated-background;
+    border: $tech-ui-button-primary-invalidated-border;
+
   }
   &.disabled {
-    cursor: not-allowed;
+    cursor: $tech-ui-button-primary-disabled-cursor;
     &::after {
       transition: $tech-ui-button-primary-disabled-transition;
       content: $tech-ui-button-primary-disabled-content;
@@ -171,16 +201,16 @@ $tech-ui-button-primary-disabled-background: rgba(255, 255, 255, .6) !default;
     }
   }
   &.loading {
-    cursor: not-allowed;
+    cursor: $tech-ui-button-primary-loading-cursor;
     &::after {
-      transition: $tech-ui-button-disabled-transition;
-      content: $tech-ui-button-disabled-content;
-      position: $tech-ui-button-disabled-position;
-      top: $tech-ui-button-disabled-top;
-      left: $tech-ui-button-disabled-left;
-      width: $tech-ui-button-disabled-width;
-      height: $tech-ui-button-disabled-height;
-      background: $tech-ui-button-disabled-background;
+      transition: $tech-ui-button-primary-loading-transition;
+      content: $tech-ui-button-primary-loading-content;
+      position: $tech-ui-button-primary-loading-position;
+      top: $tech-ui-button-primary-loading-top;
+      left: $tech-ui-button-primary-loading-left;
+      width: $tech-ui-button-primary-loading-width;
+      height: $tech-ui-button-primary-loading-height;
+      background: $tech-ui-button-primary-loading-background;
     }
   }
   &::-moz-focus-inner {

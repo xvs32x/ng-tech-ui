@@ -10,6 +10,7 @@ $tech-ui-form-radio-label-outline: none !default;
 $tech-ui-form-label-display: inline-block !default;
 $tech-ui-form-label-font-size: 1rem !default;
 $tech-ui-form-label-padding: .6rem 0 .2rem 0 !default;
+$tech-ui-form-label-cursor: pointer !default;
 // Form radio
 $tech-ui-form-radio-display: block !default;
 $tech-ui-form-radio-background: #dde1ea !default;
@@ -20,6 +21,7 @@ $tech-ui-form-radio-radius: 1.11rem !default;
 $tech-ui-form-radio-box-shadow: none !default;
 $tech-ui-form-radio-padding: none !default;
 $tech-ui-form-radio-margin: 0 !default;
+$tech-ui-form-radio-user-select: none !default;
 $tech-ui-form-radio-focused-transition: background .15s ease-out !default;
 $tech-ui-form-radio-focused-background: #d0d3dc !default;
 $tech-ui-form-radio-focused-border: 1px solid #d0d3dc !default;
@@ -27,99 +29,129 @@ $tech-ui-form-radio-clicked-transition: background .15s ease-out !default;
 $tech-ui-form-radio-clicked-box-shadow: 0 0 0 1px rgba(6, 101, 208, .5) !default;
 $tech-ui-form-radio-clicked-background: rgb(36, 96, 204) !default;
 $tech-ui-form-radio-clicked-border: 1px solid rgba(255, 255, 255, .8) !default;
-// Form input
-$tech-ui-form-input-padding: .5rem .59rem .68rem .59rem !default;
-$tech-ui-form-input-border: 1px solid #E7EBF4 !default;
-$tech-ui-form-input-width: calc(100% - 1.35rem) !default;
-$tech-ui-form-input-outline: none !default;
-$tech-ui-form-input-background: #E7EBF4 !default;
-$tech-ui-form-input-border-radius: .3rem !default;
-$tech-ui-form-input-cursor: text !default;
-$tech-ui-form-input-font-size: 1rem !default;
-$tech-ui-form-input-clicked-transition: .15s ease-out !default;
-$tech-ui-form-input-clicked-background: #e1e5ee !default;
-$tech-ui-form-input-clicked-border: 1px solid #e1e5ee !default;
-$tech-ui-form-input-validated-transition: background .15s ease-out !default;
-$tech-ui-form-input-validated-background: #c8e6dc !default;
-$tech-ui-form-input-validated-border: 1px solid #c8e6dc !default;
-$tech-ui-form-input-invalidated-transition: background .15s ease-out !default;
-$tech-ui-form-input-invalidated-background: #e6cbe0 !default;
-$tech-ui-form-input-invalidated-border: 1px solid #e6cbe0 !default;
-$tech-ui-form-input-disabled-transition: background .15s ease-out !default;
-$tech-ui-form-input-disabled-background: #E9ECEF !default;
-$tech-ui-form-input-disabled-border: 1px solid #d8dfed !default;
-$tech-ui-form-input-disabled-cursor: not-allowed !default;
+// Form input background
+$tech-ui-form-input-background-clicked-transition: .15s ease-out !default;
+$tech-ui-form-input-background-clicked-background: #e1e5ee !default;
+$tech-ui-form-input-background-clicked-border: 1px solid #e1e5ee !default;
+$tech-ui-form-input-background-validated-transition: background .15s ease-out !default;
+$tech-ui-form-input-background-validated-background: #c8e6dc !default;
+$tech-ui-form-input-background-validated-border: 1px solid #c8e6dc !default;
+$tech-ui-form-input-background-invalidated-transition: background .15s ease-out !default;
+$tech-ui-form-input-background-invalidated-background: #e6cbe0 !default;
+$tech-ui-form-input-background-invalidated-border: 1px solid #e6cbe0 !default;
+$tech-ui-form-input-background-disabled-cursor: not-allowed !default;
+$tech-ui-form-input-background-disabled-transition: background .15s ease-out !default;
+$tech-ui-form-input-background-disabled-content: '' !default;
+$tech-ui-form-input-background-disabled-position: absolute !default;
+$tech-ui-form-input-background-disabled-top: 0 !default;
+$tech-ui-form-input-background-disabled-left: 0 !default;
+$tech-ui-form-input-background-disabled-width: 100% !default;
+$tech-ui-form-input-background-disabled-height: 100% !default;
+$tech-ui-form-input-background-disabled-background: rgba(255, 255, 255, .6) !default;
+$tech-ui-form-input-background-border: 1px solid #E8EBF4 !default;
+$tech-ui-form-input-background-background: #E8EBF4 !default;
+$tech-ui-form-input-background-padding: .6rem !default;
+$tech-ui-form-input-background-border-radius: 3px !default;
+$tech-ui-form-input-background-outline: 0 !default;
+$tech-ui-form-input-background-position: relative !default;
+$tech-ui-form-input-background-user-select: none !default;
+$tech-ui-form-input-background-overflow: hidden !default;
+$tech-ui-form-input-background-display: block !default;
+$tech-ui-form-input-background-cursor: text !default;
+// Form input text
+$tech-ui-form-input-text-display: block !default;
+$tech-ui-form-input-text-width: 100% !default;
+$tech-ui-form-input-text-border: 0 !default;
+$tech-ui-form-input-text-outline: 0 !default;
+$tech-ui-form-input-text-padding: 0 !default;
+$tech-ui-form-input-text-background: transparent !default;
+$tech-ui-form-input-text-position: relative !default;
+$tech-ui-form-input-text-top: -1px !default;
+$tech-ui-form-input-text-line-height: 1.2 !default;
+$tech-ui-form-input-text-height: 1.3rem !default;
+$tech-ui-form-input-text-font-size: 1rem !default;
+// Form input textarea
+$tech-ui-form-input-textarea-display: block !default;
+$tech-ui-form-input-textarea-width: 100% !default;
+$tech-ui-form-input-textarea-border: 0 !default;
+$tech-ui-form-input-textarea-outline: 0 !default;
+$tech-ui-form-input-textarea-padding: 0 !default;
+$tech-ui-form-input-textarea-background: transparent !default;
+$tech-ui-form-input-textarea-position: relative !default;
+$tech-ui-form-input-textarea-top: -1px !default;
+$tech-ui-form-input-textarea-line-height: 1.4 !default;
+$tech-ui-form-input-textarea-height: 1.3rem !default;
+$tech-ui-form-input-textarea-min-height: 1.3rem !default;
+$tech-ui-form-input-textarea-font-size: 1rem !default;
 
 .tech-ui-form-input-background {
-  border: 1px solid #E8EBF4;
-  background: #E8EBF4;
-  padding: .6rem;
-  border-radius: 3px;
-  outline: 0;
-  position: relative;
-  user-select: none;
-  overflow: hidden;
-  display: block;
-  cursor: text;
+  border: $tech-ui-form-input-background-border;
+  background: $tech-ui-form-input-background-background;
+  padding: $tech-ui-form-input-background-padding;
+  border-radius: $tech-ui-form-input-background-border-radius;
+  outline: $tech-ui-form-input-background-outline;
+  position: $tech-ui-form-input-background-position;
+  user-select: $tech-ui-form-input-background-user-select;
+  overflow: $tech-ui-form-input-background-overflow;
+  display: $tech-ui-form-input-background-display;
+  cursor: $tech-ui-form-input-background-cursor;
 
   &.clicked {
-    transition: $tech-ui-form-input-clicked-transition;
-    background: $tech-ui-form-input-clicked-background;
-    border: $tech-ui-form-input-clicked-border;
+    transition: $tech-ui-form-input-background-clicked-transition;
+    background: $tech-ui-form-input-background-clicked-background;
+    border: $tech-ui-form-input-background-clicked-border;
   }
   &.validated {
-    transition: $tech-ui-form-input-validated-transition;
-    background: $tech-ui-form-input-validated-background;
-    border: $tech-ui-form-input-validated-border;
+    transition: $tech-ui-form-input-background-validated-transition;
+    background: $tech-ui-form-input-background-validated-background;
+    border: $tech-ui-form-input-background-validated-border;
   }
   &.invalidated {
-    transition: $tech-ui-form-input-invalidated-transition;
-    background: $tech-ui-form-input-invalidated-background;
-    border: $tech-ui-form-input-invalidated-border;
+    transition: $tech-ui-form-input-background-invalidated-transition;
+    background: $tech-ui-form-input-background-invalidated-background;
+    border: $tech-ui-form-input-background-invalidated-border;
   }
   &.disabled {
-    cursor: not-allowed;
+    cursor: $tech-ui-form-input-background-disabled-cursor;
     &::after {
-      transition: background .15s ease-out;
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, .6);
+      transition: $tech-ui-form-input-background-disabled-transition;
+      content: $tech-ui-form-input-background-disabled-content;
+      position: $tech-ui-form-input-background-disabled-position;
+      top: $tech-ui-form-input-background-disabled-top;
+      left: $tech-ui-form-input-background-disabled-left;
+      width: $tech-ui-form-input-background-disabled-width;
+      height: $tech-ui-form-input-background-disabled-height;
+      background: $tech-ui-form-input-background-disabled-background;
     }
   }
 }
-
 .tech-ui-form-input-text {
-  display: block;
-  width: 100%;
-  border: 0;
-  outline: 0;
-  padding: 0;
-  background: transparent;
-  position: relative;
-  top: -1px;
-  line-height: 1.2;
-  height: 1.3rem;
-  font-size: 1rem;
+  display: $tech-ui-form-input-text-display;
+  width: $tech-ui-form-input-text-width;
+  border:$tech-ui-form-input-text-border;
+  outline:$tech-ui-form-input-text-outline;
+  padding: $tech-ui-form-input-text-padding;
+  background: $tech-ui-form-input-text-background;
+  position: $tech-ui-form-input-text-position;
+  top: $tech-ui-form-input-text-top;
+  line-height: $tech-ui-form-input-text-line-height;
+  height: $tech-ui-form-input-text-height;
+  font-size: $tech-ui-form-input-text-font-size;
 }
 
 .tech-ui-form-input-textarea {
-  display: block;
-  width: 100%;
-  border: 0;
-  outline: 0;
-  padding: 0;
-  background: transparent;
-  position: relative;
-  top: -1px;
-  line-height: 1.4;
-  min-height: 1.3rem;
-  height: 1.3rem;
-  font-size: 1rem;
-  resize: vertical;
+  display: $tech-ui-form-input-textarea-display;
+  width: $tech-ui-form-input-textarea-width;
+  border:$tech-ui-form-input-textarea-border;
+  outline:$tech-ui-form-input-textarea-outline;
+  padding: $tech-ui-form-input-textarea-padding;
+  background: $tech-ui-form-input-textarea-background;
+  position: $tech-ui-form-input-textarea-position;
+  top: $tech-ui-form-input-textarea-top;
+  line-height: $tech-ui-form-input-textarea-line-height;
+  height: $tech-ui-form-input-textarea-height;
+  min-height: $tech-ui-form-input-textarea-min-height;
+  font-size: $tech-ui-form-input-textarea-font-size;
 }
 
 .tech-ui-form-label {
@@ -138,7 +170,7 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   box-shadow: $tech-ui-form-radio-box-shadow;
   padding: $tech-ui-form-radio-padding;
   margin: $tech-ui-form-radio-margin;
-  user-select: none;
+  user-select: $tech-ui-form-radio-user-select;
 
   &.focused {
     transition: $tech-ui-form-radio-focused-transition;
@@ -162,7 +194,7 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   white-space: $tech-ui-form-radio-label-white-space;
   padding: $tech-ui-form-radio-label-padding;
   margin-top: $tech-ui-form-radio-label-margin;
-  cursor: pointer;
+  cursor: $tech-ui-form-label-cursor;
 
   &.focused {
   }

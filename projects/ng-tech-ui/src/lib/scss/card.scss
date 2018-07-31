@@ -22,6 +22,7 @@ $tech-ui-card-disabled-left: 0 !default;
 $tech-ui-card-disabled-width: 100% !default;
 $tech-ui-card-disabled-height: 100% !default;
 $tech-ui-card-disabled-background: rgba(255, 255, 255, .6) !default;
+$tech-ui-card-disabled-cursor: not-allowed !default;
 
 // Card header
 $tech-ui-card-header-display: block !default;
@@ -64,7 +65,7 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
     background: $tech-ui-card-invalidated-background;
   }
   &.disabled {
-    cursor: not-allowed;
+    cursor: $tech-ui-card-disabled-cursor;
     &::after {
       transition: $tech-ui-card-disabled-transition;
       content: $tech-ui-card-disabled-content;
@@ -75,16 +76,6 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
       height: $tech-ui-card-disabled-height;
       background: $tech-ui-card-disabled-background;
     }
-  }
-  &.disabled::after {
-    transition: $tech-ui-card-disabled-transition;
-    content: $tech-ui-card-disabled-content;
-    position: $tech-ui-card-disabled-position;
-    top: $tech-ui-card-disabled-top;
-    left: $tech-ui-card-disabled-left;
-    width: $tech-ui-card-disabled-width;
-    height: $tech-ui-card-disabled-height;
-    background: $tech-ui-card-disabled-background;
   }
 }
 

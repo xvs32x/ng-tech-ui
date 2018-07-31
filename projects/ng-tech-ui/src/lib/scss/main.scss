@@ -17,6 +17,19 @@ $tech-ui-h4-font-size: 1.5rem !default;
 $tech-ui-h4-margin: 0 !default;
 $tech-ui-h4-padding: 0 !default;
 $tech-ui-link-font-color: $tech-ui-font-color !default;
+$tech-ui-hr-border: none !default;
+$tech-ui-hr-color: #ececec !default;
+$tech-ui-hr-background-color: #ececec !default;
+$tech-ui-hr-height: 1px !default;
+$tech-ui-ul-margin-top: 0 !default;
+$tech-ui-ul-margin-bottom: 1rem !default;
+$tech-ui-ul-ul-margin-left: -2rem !default;
+$tech-ui-ol-margin-top: 0 !default;
+$tech-ui-ol-margin-bottom: 1rem !default;
+$tech-ui-ol-ol-margin-left: -2rem !default;
+$tech-ui-font-bold: 700 !default;
+$tech-ui-fluid-width: 100% !default;
+
 
 html, body {
   font-family: $tech-ui-font-family;
@@ -60,35 +73,35 @@ h4 {
 a {
   color: $tech-ui-link-font-color;
 }
-
 hr {
-  border: none;
-  color: #ececec;
-  background-color: #ececec;
-  height: 1px;
+  border: $tech-ui-hr-border;
+  color: $tech-ui-hr-color;
+  background-color: $tech-ui-hr-background-color;
+  height: $tech-ui-hr-height;
 }
 
+
 ul {
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin-top: $tech-ui-ul-margin-top;
+  margin-bottom: $tech-ui-ul-margin-bottom;
   ul {
-    margin-left: -2rem;
+    margin-left: $tech-ui-ul-ul-margin-left;
   }
 }
 
 ol {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  ul {
-    margin-left: -2rem;
+  margin-top: $tech-ui-ol-margin-top;
+  margin-bottom: $tech-ui-ol-margin-bottom;
+  ol {
+    margin-left: $tech-ui-ol-ol-margin-left;
   }
 }
 
 .font-bold {
-  font-weight: 700 !important;
+  font-weight: $tech-ui-font-bold !important;
 }
 
 .fluid {
-  width: 100%;
+  width: $tech-ui-fluid-width;
 }
 
