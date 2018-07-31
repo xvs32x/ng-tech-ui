@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
-import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
+import { TechStateSpinnerComponentClass } from '../../../classes/tech-state-spinner-component.class';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { TechStateComponentClass } from '../../../classes/tech-state-component.c
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TechCardComponent extends TechStateComponentClass {
+export class TechCardComponent extends TechStateSpinnerComponentClass {
 
   constructor(public el: ElementRef) {
     super(el);

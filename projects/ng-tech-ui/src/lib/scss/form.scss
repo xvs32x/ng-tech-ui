@@ -55,6 +55,7 @@ $tech-ui-form-input-disabled-cursor: not-allowed !default;
   background: #E8EBF4;
   padding: .6rem;
   border-radius: 3px;
+  outline: none;
 
   &.clicked {
     transition: $tech-ui-form-input-clicked-transition;

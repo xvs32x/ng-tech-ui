@@ -1,6 +1,5 @@
 import { STATE_CLICKED, STATE_DEFAULT, STATE_DISABLED, STATE_FOCUSED, STATE_LOADING } from '../constants/tech-state';
 import { ElementRef, EventEmitter, HostBinding, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { TechSpinnerDirective } from '../modules/spinner/directives/tech-spinner.directive';
 
 export class TechStateComponentClass implements OnChanges {
   @Input() state: string;
@@ -12,10 +11,7 @@ export class TechStateComponentClass implements OnChanges {
   @Output() OnMouseLeave: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnClick: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnBlur: EventEmitter<Event> = new EventEmitter<Event>();
-  @HostBinding('attr.techSpinner') techSpinner: TechSpinnerDirective;
-
   constructor(public el: ElementRef) {
-    this.techSpinner = new TechSpinnerDirective(this.el);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -24,24 +20,6 @@ export class TechStateComponentClass implements OnChanges {
         this.el.nativeElement.classList.remove(changes.state.previousValue);
       }
       this.el.nativeElement.classList.add(changes.state.currentValue);
-      if (changes.state.currentValue === STATE_LOADING) {
-        this.techSpinner.switchIsShow(true);
-      }
-      if (changes.state.previousValue === STATE_LOADING) {
-        this.techSpinner.switchIsShow(false);
-      }
-    }
-    if (changes.isShow && changes.isShow.previousValue !== changes.isShow.currentValue) {
-      this.techSpinner.switchIsShow(changes.isShow.currentValue);
-    }
-    if (changes.isSpinnerCancelable && changes.isSpinnerCancelable.previousValue !== changes.isSpinnerCancelable.currentValue) {
-      this.techSpinner.switchIsCancelable(changes.isSpinnerCancelable.currentValue);
-    }
-    if (changes.spinnerColor && changes.spinnerColor.previousValue !== changes.spinnerColor.currentValue) {
-      this.techSpinner.changesColor(changes.spinnerColor.currentValue);
-    }
-    if (changes.OnSpinnerCancel) {
-      this.techSpinner.changeOnSpinnerCancel(changes.OnSpinnerCancel.currentValue);
     }
   }
 
