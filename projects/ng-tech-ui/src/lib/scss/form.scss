@@ -14,8 +14,8 @@ $tech-ui-form-label-padding: .6rem 0 .2rem 0 !default;
 $tech-ui-form-label-cursor: pointer !default;
 // Form radio
 $tech-ui-form-radio-display: block !default;
-$tech-ui-form-radio-background: #dde1ea !default;
-$tech-ui-form-radio-border: 1px solid #dde1ea !default;
+$tech-ui-form-radio-background: darken(#f4f6fa, 10%) !default;
+$tech-ui-form-radio-border: 1px solid darken(#f4f6fa, 10%) !default;
 $tech-ui-form-radio-width: 1.11rem !default;
 $tech-ui-form-radio-height: 1.11rem !default;
 $tech-ui-form-radio-radius: 1.11rem !default;
@@ -24,11 +24,11 @@ $tech-ui-form-radio-padding: none !default;
 $tech-ui-form-radio-margin: 0 !default;
 $tech-ui-form-radio-user-select: none !default;
 $tech-ui-form-radio-focused-transition: background .15s ease-out !default;
-$tech-ui-form-radio-focused-background: #d0d3dc !default;
-$tech-ui-form-radio-focused-border: 1px solid #d0d3dc !default;
+$tech-ui-form-radio-focused-background: darken(#f4f6fa, 15%) !default;
+$tech-ui-form-radio-focused-border: 1px solid darken(#f4f6fa, 15%) !default;
 $tech-ui-form-radio-clicked-transition: background .15s ease-out !default;
-$tech-ui-form-radio-clicked-box-shadow: 0 0 0 1px rgba(6, 101, 208, .5) !default;
-$tech-ui-form-radio-clicked-background: rgb(36, 96, 204) !default;
+$tech-ui-form-radio-clicked-box-shadow: 0 0 0 1px transparentize($tech-ui-primary-color, 0.5) !default;
+$tech-ui-form-radio-clicked-background: $tech-ui-primary-color !default;
 $tech-ui-form-radio-clicked-border: 1px solid rgba(255, 255, 255, .8) !default;
 // Form input background
 $tech-ui-form-input-background-clicked-transition: .15s ease-out !default;

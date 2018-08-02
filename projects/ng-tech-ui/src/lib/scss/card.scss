@@ -24,17 +24,14 @@ $tech-ui-card-disabled-width: 100% !default;
 $tech-ui-card-disabled-height: 100% !default;
 $tech-ui-card-disabled-background: rgba(255, 255, 255, .6) !default;
 $tech-ui-card-disabled-cursor: not-allowed !default;
-
 // Card header
 $tech-ui-card-header-display: block !default;
 $tech-ui-card-header-padding: 1rem !default;
 $tech-ui-card-header-border-bottom: 1px solid #e9ecef !default;
-
 // Card body
 $tech-ui-card-body-padding: 1rem !default;
 $tech-ui-card-body-display: block !default;
 $tech-ui-card-body-flex-grow: 1 !default;
-
 // Card footer
 $tech-ui-card-footer-display: block !default;
 $tech-ui-card-footer-padding: 1rem !default;
@@ -60,10 +57,14 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
   &.validated {
     transition: $tech-ui-card-validated-transition;
     background: $tech-ui-card-validated-background;
+    box-shadow: 0 .5rem 1rem lighten($tech-ui-validated-color, 20%);
+    border: 1px solid lighten($tech-ui-validated-color, 25%);
   }
   &.invalidated {
     transition: $tech-ui-card-invalidated-transition;
     background: $tech-ui-card-invalidated-background;
+    box-shadow: 0 .5rem 1rem lighten($tech-ui-invalidated-color, 20%);
+    border: 1px solid lighten($tech-ui-invalidated-color, 25%);
   }
   &.disabled {
     cursor: $tech-ui-card-disabled-cursor;
