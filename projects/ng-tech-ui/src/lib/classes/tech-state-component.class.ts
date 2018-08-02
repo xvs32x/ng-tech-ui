@@ -7,9 +7,9 @@ import {
   STATE_LOADING,
   STATE_VALIDATED
 } from '../constants/tech-state';
-import { ElementRef, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { AfterViewInit, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
-export class TechStateComponentClass implements OnChanges {
+export class TechStateComponentClass implements OnChanges, AfterViewInit {
   states = [
     STATE_CLICKED,
     STATE_DEFAULT,
@@ -27,6 +27,12 @@ export class TechStateComponentClass implements OnChanges {
   @Output() OnBlur: EventEmitter<Event> = new EventEmitter<Event>();
 
   constructor(public el: ElementRef) {
+  }
+
+  ngAfterViewInit() {
+    this.el.nativeElement.onblur = (e) => {
+      this.onBlur(e);
+    };
   }
 
   ngOnChanges(changes: SimpleChanges) {

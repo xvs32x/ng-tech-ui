@@ -31,20 +31,23 @@ $tech-ui-button-disabled-cursor: not-allowed !default;
 $tech-ui-button-loading-transition: background .15s ease-out !default;
 $tech-ui-button-loading-content: '' !default;
 $tech-ui-button-loading-position: absolute !default;
-$tech-ui-button-loading-top: 0 !default;
-$tech-ui-button-loading-left: 0 !default;
-$tech-ui-button-loading-width: 100% !default;
-$tech-ui-button-loading-height: 100% !default;
-$tech-ui-button-loading-background: rgba(255, 255, 255, .6) !default;
-$tech-ui-button-loading-cursor: not-allowed !default;
+$tech-ui-button-loading-top: -50% !default;
+$tech-ui-button-loading-left: -100% !default;
+$tech-ui-button-loading-width: 200% !default;
+$tech-ui-button-loading-height: 200% !default;
+$tech-ui-button-loading-background: #000 !default;
+$tech-ui-button-loading-cursor: progress !default;
+$tech-ui-button-loading-border-radius: 100% !default;
+$tech-ui-button-loading-animation: sk-scaleout 1.0s infinite ease-in-out !default;
+$tech-ui-button-loading-opacity: .6 !default;
 $tech-ui-button-validated-transition: .15s ease-out !default;
-$tech-ui-button-validated-background: lighten(#82b54b, 40%) !default;
-$tech-ui-button-validated-box-shadow: 0 0.125rem 0.75rem lighten(#82b54b, 20%) !default;
+$tech-ui-button-validated-background: lighten($tech-ui-validated-color, 40%) !default;
+$tech-ui-button-validated-box-shadow: 0 0.125rem 0.75rem lighten($tech-ui-validated-color, 20%) !default;
 $tech-ui-button-validated-border: 0 !default;
 $tech-ui-button-invalidated-transition: .15s ease-out !default;
-$tech-ui-button-invalidated-background: lighten(#e04f1a, 40%) !default;
+$tech-ui-button-invalidated-background: lighten($tech-ui-invalidated-color, 40%) !default;
 $tech-ui-button-invalidated-border: 0 !default;
-$tech-ui-button-invalidated-box-shadow:  0 0.125rem 0.75rem lighten(#e04f1a, 20%) !default;
+$tech-ui-button-invalidated-box-shadow:  0 0.125rem 0.75rem lighten($tech-ui-invalidated-color, 20%) !default;
 // Primary
 $tech-ui-button-primary-font-size: .95rem !default;
 $tech-ui-button-primary-font-weight: 400 !default;
@@ -71,25 +74,28 @@ $tech-ui-button-primary-disabled-top: 0 !default;
 $tech-ui-button-primary-disabled-left: 0 !default;
 $tech-ui-button-primary-disabled-width: 100% !default;
 $tech-ui-button-primary-disabled-height: 100% !default;
-$tech-ui-button-primary-disabled-background: rgba(255, 255, 255, .6) !default;
-$tech-ui-button-primary-loading-cursor: not-allowed !default;
+$tech-ui-button-primary-disabled-background: transparentize(#fff, .4) !default;
+$tech-ui-button-primary-loading-cursor: progress !default;
 $tech-ui-button-primary-loading-transition: background .15s ease-out !default;
 $tech-ui-button-primary-loading-content: '' !default;
 $tech-ui-button-primary-loading-position: absolute !default;
-$tech-ui-button-primary-loading-top: 0 !default;
-$tech-ui-button-primary-loading-left: 0 !default;
-$tech-ui-button-primary-loading-width: 100% !default;
-$tech-ui-button-primary-loading-height: 100% !default;
-$tech-ui-button-primary-loading-background: rgba(255, 255, 255, .6) !default;
+$tech-ui-button-primary-loading-top: -50% !default;
+$tech-ui-button-primary-loading-left: -100% !default;
+$tech-ui-button-primary-loading-width: 200% !default;
+$tech-ui-button-primary-loading-height: 200% !default;
+$tech-ui-button-primary-loading-background: #fff !default;
 $tech-ui-button-primary-loading-box-shadow: 0 0 0 .3rem transparentize(lighten($tech-ui-primary-color, 30%), .4) !default;
+$tech-ui-button-primary-loading-border-radius: 100% !default;
+$tech-ui-button-primary-loading-animation: sk-scaleout 1.0s infinite ease-in-out !default;
+$tech-ui-button-primary-loading-opacity: .6 !default;
 $tech-ui-button-primary-validated-transition: .15s ease-out !default;
-$tech-ui-button-primary-validated-background: #82b54b !default;
+$tech-ui-button-primary-validated-background: $tech-ui-validated-color !default;
 $tech-ui-button-primary-validated-border: 0 !default;
-$tech-ui-button-primary-validated-box-shadow:  0 0.125rem 0.75rem lighten(#82b54b, 10%) !default;
+$tech-ui-button-primary-validated-box-shadow:  0 0.125rem 0.75rem lighten($tech-ui-validated-color, 10%) !default;
 $tech-ui-button-primary-invalidated-transition: .15s ease-out !default;
-$tech-ui-button-primary-invalidated-background: #e04f1a !default;
+$tech-ui-button-primary-invalidated-background: $tech-ui-invalidated-color !default;
 $tech-ui-button-primary-invalidated-border: 0 !default;
-$tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten(#e04f1a, 10%) !default;
+$tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten($tech-ui-invalidated-color, 10%) !default;
 
 .tech-ui-button {
   cursor: $tech-ui-button-clicked-cursor;
@@ -130,6 +136,7 @@ $tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten(#e04
   }
   &.disabled {
     cursor: $tech-ui-button-disabled-cursor;
+    opacity: .6;
     &::after {
       transition: $tech-ui-button-disabled-transition;
       content: $tech-ui-button-disabled-content;
@@ -143,7 +150,11 @@ $tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten(#e04
   }
   &.loading {
     cursor: $tech-ui-button-loading-cursor;
+    opacity: $tech-ui-button-loading-opacity;
     &::after {
+      border-radius: $tech-ui-button-loading-border-radius;
+      -webkit-animation: $tech-ui-button-loading-animation;
+      animation: $tech-ui-button-loading-animation;
       transition: $tech-ui-button-loading-transition;
       content: $tech-ui-button-loading-content;
       position: $tech-ui-button-loading-position;
@@ -197,6 +208,7 @@ $tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten(#e04
   }
   &.disabled {
     cursor: $tech-ui-button-primary-disabled-cursor;
+    opacity: .6;
     &::after {
       transition: $tech-ui-button-primary-disabled-transition;
       content: $tech-ui-button-primary-disabled-content;
@@ -210,7 +222,11 @@ $tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten(#e04
   }
   &.loading {
     cursor: $tech-ui-button-primary-loading-cursor;
+    opacity: $tech-ui-button-primary-loading-opacity;
     &::after {
+      border-radius: $tech-ui-button-primary-loading-border-radius;
+      -webkit-animation: $tech-ui-button-primary-loading-animation;
+      animation: $tech-ui-button-primary-loading-animation;
       transition: $tech-ui-button-primary-loading-transition;
       content: $tech-ui-button-primary-loading-content;
       position: $tech-ui-button-primary-loading-position;
@@ -224,4 +240,23 @@ $tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten(#e04
   &::-moz-focus-inner {
     border: 0;
   }
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+      opacity: 0;
+    }
 }

@@ -5,7 +5,6 @@ import { TechStateComponentClass } from '../../../classes/tech-state-component.c
   selector: '[techFormInputBackground]'
 })
 export class TechFormInputBackgroundDirective extends TechStateComponentClass implements AfterViewInit {
-  @HostBinding('attr.tabindex') tabIndex = 1;
 
   constructor(public el: ElementRef) {
     super(el);

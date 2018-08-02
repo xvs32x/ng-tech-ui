@@ -1,6 +1,7 @@
+@import "global";
 // Card
 $tech-ui-card-background: #fff !default;
-$tech-ui-card-border-radius: 1.3rem !default;
+$tech-ui-card-border-radius: 1.1rem !default;
 $tech-ui-card-box-shadow: 0 .5rem 1rem #d8dfed !default;
 $tech-ui-card-position: relative !default;
 $tech-ui-card-overflow: hidden !default;
@@ -11,9 +12,9 @@ $tech-ui-card-border: 1px solid #fff !default;
 $tech-ui-card-focused-box-shadow: 0 .7rem 1rem darken(#d8dfed, 1%) !default;
 $tech-ui-card-focused-transition: box-shadow .15s ease-out !default;
 $tech-ui-card-validated-transition: background .15s ease-out !default;
-$tech-ui-card-validated-background: #D1F0E6 !default;
+$tech-ui-card-validated-background: lighten($tech-ui-validated-color, 30%) !default;
 $tech-ui-card-invalidated-transition: background .15s ease-out !default;
-$tech-ui-card-invalidated-background: #F0D5EA !default;
+$tech-ui-card-invalidated-background: lighten($tech-ui-invalidated-color, 30%) !default;
 $tech-ui-card-disabled-transition: background .15s ease-out !default;
 $tech-ui-card-disabled-content: '' !default;
 $tech-ui-card-disabled-position: absolute !default;
