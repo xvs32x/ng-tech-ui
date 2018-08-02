@@ -78,8 +78,8 @@ export class TechStateComponentClass implements OnChanges, AfterViewInit {
     this.switchState(STATE_DEFAULT);
   }
 
-  @HostListener('click', ['$event']) onClick(e?) {
-    if (e && (
+  @HostListener('click', ['$event']) onClick(e?, force?: boolean) {
+    if (e && !force && (
       this.isFrozenState ||
       this.state === STATE_DISABLED ||
       this.state === STATE_CLICKED ||

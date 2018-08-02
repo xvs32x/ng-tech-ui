@@ -1,3 +1,4 @@
+@import "global";
 // Form radio label
 $tech-ui-form-radio-label-display: block !default;
 $tech-ui-form-radio-label-background: transparent !default;
@@ -34,11 +35,11 @@ $tech-ui-form-input-background-clicked-transition: .15s ease-out !default;
 $tech-ui-form-input-background-clicked-background: darken(#f4f6fa, 1%) !default;
 $tech-ui-form-input-background-clicked-border: 1px solid darken(#f4f6fa, 1%) !default;
 $tech-ui-form-input-background-validated-transition: background .15s ease-out !default;
-$tech-ui-form-input-background-validated-background: #c8e6dc !default;
-$tech-ui-form-input-background-validated-border: 1px solid #c8e6dc !default;
+$tech-ui-form-input-background-validated-background: lighten($tech-ui-validated-color, 45%) !default;
+$tech-ui-form-input-background-validated-border: 1px solid lighten($tech-ui-validated-color, 45%) !default;
 $tech-ui-form-input-background-invalidated-transition: background .15s ease-out !default;
-$tech-ui-form-input-background-invalidated-background: #e6cbe0 !default;
-$tech-ui-form-input-background-invalidated-border: 1px solid #e6cbe0 !default;
+$tech-ui-form-input-background-invalidated-background: lighten($tech-ui-invalidated-color, 45%) !default;
+$tech-ui-form-input-background-invalidated-border: 1px solid lighten($tech-ui-invalidated-color, 45%) !default;
 $tech-ui-form-input-background-disabled-cursor: not-allowed !default;
 $tech-ui-form-input-background-disabled-transition: background .15s ease-out !default;
 $tech-ui-form-input-background-disabled-content: '' !default;

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostBinding, HostListener, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { TechFormInputBackgroundDirective } from '../directives/tech-form-input-background';
-import { STATE_DEFAULT } from '../../../constants/tech-state';
+import { STATE_DEFAULT, STATE_DISABLED, STATE_LOADING } from '../../../constants/tech-state';
 import { TechFormInputTextDirective } from '../directives/tech-form-input-text.directive';
 import { TechFormInputTextareaDirective } from '../directives/tech-form-input-textarea.directive';
 import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
@@ -47,13 +47,20 @@ export class TechInputTextComponent extends TechStateComponentClass implements O
 
   ngAfterViewInit() {
     this.child.el.nativeElement.onblur = (e) => {
+      if (
+        this.isFrozenState ||
+        this.state === STATE_DISABLED ||
+        this.state === STATE_LOADING
+      ) {
+        return;
+      }
       this.switchState(STATE_DEFAULT);
     };
   }
 
   @HostListener('click', ['$event']) onClick(e?) {
     TechStateComponentClass.prototype.onClick.call(this, e);
-    this.child.onClick(e);
+    this.child.onClick(e, true);
   }
 
   changeChildState(state: string) {
