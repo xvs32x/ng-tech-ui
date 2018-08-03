@@ -10,6 +10,8 @@ import { TechFormLabelDirective } from './directives/tech-form-label.directive';
 import { TechFormInputBackgroundDirective } from './directives/tech-form-input-background';
 import { TechFormInputTextDirective } from './directives/tech-form-input-text.directive';
 import { TechFormInputTextareaDirective } from './directives/tech-form-input-textarea.directive';
+import { TechFormCheckboxLabelDirective } from './directives/tech-form-checkbox-label.directive';
+import { TechFormCheckboxComponent } from './components/tech-form-checkbox.component';
 
 @NgModule({
   imports: [
@@ -20,6 +22,8 @@ import { TechFormInputTextareaDirective } from './directives/tech-form-input-tex
   exports: [
     TechFormRadioComponent,
     TechFormRadioLabelDirective,
+    TechFormCheckboxLabelDirective,
+    TechFormCheckboxComponent,
     TechInputTextComponent,
     TechFormLabelDirective,
     TechInputSelectComponet,
@@ -30,6 +34,8 @@ import { TechFormInputTextareaDirective } from './directives/tech-form-input-tex
   declarations: [
     TechFormRadioComponent,
     TechFormRadioLabelDirective,
+    TechFormCheckboxLabelDirective,
+    TechFormCheckboxComponent,
     TechInputTextComponent,
     TechFormLabelDirective,
     TechInputSelectComponet,

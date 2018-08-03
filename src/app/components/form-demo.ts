@@ -84,6 +84,20 @@ import {
                   </tech-form-radio-component>
               </div>
             </div>
+            <!--Options-->
+            <!--Plans-->
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
+              <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
+                <label techFormLabel>Your plan:</label>
+              </div>
+              <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1rem)" [state]="inputTextState" techFormInputBackground>
+                <tech-form-checkbox-component
+                  *ngFor="let item of formPlans"
+                  [model]="formPlan" [name]="item.name" (OnModelChange)="onFormPlanChange($event)">
+                  {{item.label}}
+                </tech-form-checkbox-component>
+              </div>
+            </div>
           </div>
         </tech-card-body>
       </tech-card>
