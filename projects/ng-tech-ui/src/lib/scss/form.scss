@@ -1,4 +1,37 @@
 @import "global";
+// Form checkbox label
+$tech-ui-form-checkbox-label-display: block !default;
+$tech-ui-form-checkbox-label-background: transparent !default;
+$tech-ui-form-checkbox-label-border: none !default;
+$tech-ui-form-checkbox-label-color: #585858 !default;
+$tech-ui-form-checkbox-label-white-space: nowrap !default;
+$tech-ui-form-checkbox-label-padding: 0 0 0 1.66rem !default;
+$tech-ui-form-checkbox-label-margin: -.1rem 0 0 0 !default;
+$tech-ui-form-checkbox-label-outline: none !default;
+$tech-ui-form-checkbox-label-cursor: pointer !default;
+// Form checkbox
+$tech-ui-form-checkbox-display: block !default;
+$tech-ui-form-checkbox-background: darken(#f4f6fa, 10%) !default;
+$tech-ui-form-checkbox-border: 1px solid darken(#f4f6fa, 10%) !default;
+$tech-ui-form-checkbox-width: 1.11rem !default;
+$tech-ui-form-checkbox-height: 1.11rem !default;
+$tech-ui-form-checkbox-radius: 1.11rem !default;
+$tech-ui-form-checkbox-box-shadow: none !default;
+$tech-ui-form-checkbox-padding: none !default;
+$tech-ui-form-checkbox-margin: 0 !default;
+$tech-ui-form-checkbox-user-select: none !default;
+$tech-ui-form-checkbox-focused-transition: background .15s ease-out !default;
+$tech-ui-form-checkbox-focused-background: darken(#f4f6fa, 15%) !default;
+$tech-ui-form-checkbox-focused-border: 1px solid darken(#f4f6fa, 15%) !default;
+$tech-ui-form-checkbox-clicked-transition: background .15s ease-out !default;
+$tech-ui-form-checkbox-clicked-box-shadow: 0 0 0 1px transparentize($tech-ui-primary-color, 0.5) !default;
+$tech-ui-form-checkbox-clicked-background: $tech-ui-primary-color !default;
+$tech-ui-form-checkbox-clicked-border: 1px solid rgba(255, 255, 255, .8) !default;
+$tech-ui-form-checkbox-display: inline-block !default;
+$tech-ui-form-checkbox-font-size: 1rem !default;
+$tech-ui-form-checkbox-padding: .6rem 0 .2rem 0 !default;
+$tech-ui-form-checkbox-cursor: pointer !default;
+$tech-ui-form-checkbox-border-radius: 5px !default;
 // Form radio label
 $tech-ui-form-radio-label-display: block !default;
 $tech-ui-form-radio-label-background: transparent !default;
@@ -8,10 +41,7 @@ $tech-ui-form-radio-label-white-space: nowrap !default;
 $tech-ui-form-radio-label-padding: 0 0 0 1.66rem !default;
 $tech-ui-form-radio-label-margin: -.1rem 0 0 0 !default;
 $tech-ui-form-radio-label-outline: none !default;
-$tech-ui-form-label-display: inline-block !default;
-$tech-ui-form-label-font-size: 1rem !default;
-$tech-ui-form-label-padding: .6rem 0 .2rem 0 !default;
-$tech-ui-form-label-cursor: pointer !default;
+$tech-ui-form-radio-label-cursor: pointer !default;
 // Form radio
 $tech-ui-form-radio-display: block !default;
 $tech-ui-form-radio-background: darken(#f4f6fa, 10%) !default;
@@ -85,6 +115,11 @@ $tech-ui-form-input-textarea-height: 1.3rem !default;
 $tech-ui-form-input-textarea-min-height: 1.3rem !default;
 $tech-ui-form-input-textarea-font-size: 1rem !default;
 $tech-ui-form-input-textarea-resize: vertical !default;
+// Form label
+$tech-ui-form-label-display: inline-block !default;
+$tech-ui-form-label-font-size: 1rem !default;
+$tech-ui-form-label-padding: .6rem 0 .2rem 0 !default;
+$tech-ui-form-label-cursor: pointer !default;
 
 .tech-ui-form-input-background {
   border: $tech-ui-form-input-background-border;
@@ -197,7 +232,52 @@ $tech-ui-form-input-textarea-resize: vertical !default;
   white-space: $tech-ui-form-radio-label-white-space;
   padding: $tech-ui-form-radio-label-padding;
   margin-top: $tech-ui-form-radio-label-margin;
-  cursor: $tech-ui-form-label-cursor;
+  cursor: $tech-ui-form-radio-label-cursor;
+
+  &.focused {
+  }
+  &.clicked {
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+.tech-ui-form-checkbox {
+  display: $tech-ui-form-checkbox-display;
+  background: $tech-ui-form-checkbox-background;
+  border: $tech-ui-form-checkbox-border;
+  width: $tech-ui-form-checkbox-width;
+  height: $tech-ui-form-checkbox-height;
+  border-radius: $tech-ui-form-checkbox-border-radius;
+  box-shadow: $tech-ui-form-checkbox-box-shadow;
+  padding: $tech-ui-form-checkbox-padding;
+  margin: $tech-ui-form-checkbox-margin;
+  user-select: $tech-ui-form-checkbox-user-select;
+
+  &.focused {
+    transition: $tech-ui-form-checkbox-focused-transition;
+    background: $tech-ui-form-checkbox-focused-background;
+    border: $tech-ui-form-checkbox-focused-border;
+  }
+  &.clicked {
+    transition: $tech-ui-form-checkbox-clicked-transition;
+    box-shadow: $tech-ui-form-checkbox-clicked-box-shadow;
+    background: $tech-ui-form-checkbox-clicked-background;
+    border: $tech-ui-form-checkbox-clicked-border;
+  }
+}
+
+.tech-ui-form-checkbox-label {
+  outline: $tech-ui-form-checkbox-label-outline;
+  display: $tech-ui-form-checkbox-label-display;
+  background: $tech-ui-form-checkbox-label-background;
+  border: $tech-ui-form-checkbox-label-border;
+  color: $tech-ui-form-checkbox-label-color;
+  white-space: $tech-ui-form-checkbox-label-white-space;
+  padding: $tech-ui-form-checkbox-label-padding;
+  margin-top: $tech-ui-form-checkbox-label-margin;
+  cursor: $tech-ui-form-checkbox-label-cursor;
 
   &.focused {
   }

@@ -19,9 +19,9 @@ export class TechStateComponentClass implements OnChanges, AfterViewInit {
     STATE_LOADING,
     STATE_VALIDATED
   ];
-  @Input() state: string;
+  @Input() state: string = STATE_DEFAULT;
   @Input() isFrozenState: boolean;
-  @Output() OnMouseOver: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() OnMouseEnter: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnMouseLeave: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnClick: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() OnBlur: EventEmitter<Event> = new EventEmitter<Event>();
@@ -38,13 +38,13 @@ export class TechStateComponentClass implements OnChanges, AfterViewInit {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.state && changes.state.previousValue !== changes.state.currentValue) {
       if (changes.state.previousValue) {
-        this.el.nativeElement.classList.remove(changes.state.previousValue);
+        this.el.nativeElement.classList.remove(...this.states);
       }
       this.el.nativeElement.classList.add(changes.state.currentValue);
     }
   }
 
-  @HostListener('mouseover', ['$event']) onMouseOver(e?) {
+  @HostListener('mouseenter', ['$event']) onMouseEnter(e?) {
     if (e && (
       this.isFrozenState ||
       this.state === STATE_DISABLED ||
@@ -56,12 +56,12 @@ export class TechStateComponentClass implements OnChanges, AfterViewInit {
       return;
     }
     if (e) {
-      this.OnMouseOver.next(e);
+      this.OnMouseEnter.next(e);
     }
     this.switchState(STATE_FOCUSED);
   }
 
-  @HostListener('mouseleave', ['$event']) onMouseLeave(e?) {
+  @HostListener('mouseout', ['$event']) onMouseLeave(e?) {
     if (e && (
       this.isFrozenState ||
       this.state === STATE_DISABLED ||

@@ -20,11 +20,11 @@ import {
           <h4>Switch state in the next form</h4>
         </tech-card-header>
         <tech-card-body fxLayout="column" fxLayoutGap="1rem">
-            <tech-form-radio-component
-              *ngFor="let item of inputStates"
-              [model]="inputTextState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">
-              {{item.label}}
-            </tech-form-radio-component>
+          <tech-form-radio-component
+            *ngFor="let item of inputStates"
+            [model]="inputTextState" [name]="item.name" (OnModelChange)="onInputTextStateChange($event)">
+            {{item.label}}
+          </tech-form-radio-component>
         </tech-card-body>
       </tech-card>
       <tech-card class="demo-box" fxFlex="calc(75%-2rem)">
@@ -77,23 +77,23 @@ import {
                 <label techFormLabel>Your plan:</label>
               </div>
               <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1rem)" [state]="inputTextState" techFormInputBackground>
-                  <tech-form-radio-component
-                    *ngFor="let item of formPlans"
-                    [model]="formPlan" [name]="item.name" (OnModelChange)="onFormPlanChange($event)">
-                    {{item.label}}
-                  </tech-form-radio-component>
+                <tech-form-radio-component
+                  *ngFor="let item of formPlans"
+                  [model]="formPlan" [name]="item.name" (OnModelChange)="onFormPlanChange($event)">
+                  {{item.label}}
+                </tech-form-radio-component>
               </div>
             </div>
             <!--Options-->
             <!--Plans-->
             <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
               <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
-                <label techFormLabel>Your plan:</label>
+                <label techFormLabel>Your options:</label>
               </div>
               <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1rem)" [state]="inputTextState" techFormInputBackground>
                 <tech-form-checkbox-component
-                  *ngFor="let item of formPlans"
-                  [model]="formPlan" [name]="item.name" (OnModelChange)="onFormPlanChange($event)">
+                  *ngFor="let item of formOptions"
+                  [model]="formSelectedOptions" [name]="item.name" (OnModelChange)="onFormOptionsChange($event)">
                   {{item.label}}
                 </tech-form-checkbox-component>
               </div>
@@ -120,6 +120,12 @@ export class FormDemoComponent implements OnInit {
     {name: 'medium', label: 'Medium'},
     {name: 'optima', label: 'Optima'}
   ];
+  formSelectedOptions = ['option-1', 'option-2', 'option-3'];
+  formOptions = [
+    {name: 'option-1', label: 'Option 1'},
+    {name: 'option-2', label: 'Option 2'},
+    {name: 'option-3', label: 'Option 3'},
+  ];
 
   constructor() {
   }
@@ -133,5 +139,9 @@ export class FormDemoComponent implements OnInit {
 
   onFormPlanChange(plan) {
     this.formPlan = plan;
+  }
+
+  onFormOptionsChange(options: string[]) {
+    this.formSelectedOptions = options;
   }
 }

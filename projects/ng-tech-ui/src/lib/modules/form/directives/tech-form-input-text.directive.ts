@@ -21,7 +21,7 @@ export class TechFormInputTextDirective extends TechStateComponentClass implemen
     this.el.nativeElement.classList.add('tech-ui-form-input-text', 'default');
   }
 
-  @HostListener('mouseover', ['$event']) onMouseOver(e?) {
+  @HostListener('mouseenter', ['$event']) onMouseEnter(e?) {
     if (e && (
       this.isFrozenState ||
       this.state === STATE_DISABLED ||
@@ -33,7 +33,7 @@ export class TechFormInputTextDirective extends TechStateComponentClass implemen
       return;
     }
     if (e) {
-      this.OnMouseOver.next(e);
+      this.OnMouseEnter.next(e);
     }
     this.switchState(STATE_FOCUSED);
   }
