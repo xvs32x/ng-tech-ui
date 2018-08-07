@@ -80,6 +80,49 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
       background: $tech-ui-card-disabled-background;
     }
   }
+  &.loading {
+    cursor: progress;
+    opacity: .6;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    &::after {
+      transition: background .15s ease-out;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: darken(#f4f6fa, 10%);
+      animation: card-scaleout 1.0s infinite ease-in-out;
+      border-radius: 100%;
+    }
+  }
+}
+@-webkit-keyframes card-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes card-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+      opacity: 0;
+    }
 }
 
 .tech-ui-card-header {

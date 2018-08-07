@@ -38,7 +38,10 @@ export class TechOverlayComponent implements OnInit {
   }
 
   show() {
-    this.overlayRef = this.overlay.create(this.config ? this.config : this.defaultConfig);
+    this.overlayRef = this.overlay.create(
+      this.config ?
+        {...this.defaultConfig, ...this.config} : this.defaultConfig
+    );
     const overlayPortal = new TemplatePortal(
       this.template,
       this.viewContainerRef

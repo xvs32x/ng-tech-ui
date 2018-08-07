@@ -49,6 +49,7 @@ import { tap } from 'rxjs/internal/operators';
         [fxFlex.sm]="'calc(50%-2em)'"
         [fxFlex.lg]="'calc(25%-2em)'"
         class="demo-box"
+        state="loading" [isFrozenState]="true"
       >
         <tech-card-header>
           <h4>Card for login form</h4>

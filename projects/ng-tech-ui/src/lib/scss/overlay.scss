@@ -32,10 +32,12 @@
   -webkit-tap-highlight-color: transparent;
   transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   opacity: 0;
-  &.light {
-    background: $tech-ui-body-background;
-    filter: blur(13px);
-    opacity: .95 !important;
+  &.cdk-overlay-backdrop-showing {
+   &.light {
+     background: $tech-ui-body-background;
+     filter: blur(13px);
+     opacity: .95 !important;
+   }
   }
 }
 
