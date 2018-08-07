@@ -26,7 +26,7 @@ export class TechOverlayComponent implements OnInit {
   get defaultConfig() {
     return new OverlayConfig({
       hasBackdrop: true,
-      backdropClass: 'dark',
+      backdropClass: 'light',
       positionStrategy: this.defaultPositionStrategy
     });
   }
