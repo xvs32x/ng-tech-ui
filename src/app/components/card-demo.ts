@@ -30,7 +30,17 @@ import { tap } from 'rxjs/internal/operators';
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </tech-card-body>
         <tech-card-footer>
-          <button (click)="sayThanks()" techButton>I like this!</button>
+          <button (click)="overlay.show()" techButton>I like this!</button>
+          <tech-overlay #overlay>
+            <tech-card>
+              <tech-card-body>
+                <h4>Thank you! :)</h4>
+              </tech-card-body>
+              <tech-card-footer class="center">
+                <button (click)="overlay.hide()" techButton>Close</button>
+              </tech-card-footer>
+            </tech-card>
+          </tech-overlay>
         </tech-card-footer>
       </tech-card>
       <!--Card and form inside-->
@@ -167,10 +177,6 @@ export class CardDemoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subs.forEach(s => s.unsubscribe());
-  }
-
-  sayThanks() {
-    alert('Thank you! :)');
   }
 
   trackByFn(index, item) {

@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 import { TechStateComponentClass } from '../../../classes/tech-state-component.class';
-import { STATE_FOCUSED } from '../../../constants/tech-state';
+import { STATE_CLICKED, STATE_FOCUSED } from '../../../constants/tech-state';
 
 @Directive({
   selector: '[techFormInputBackground]'
@@ -16,7 +16,7 @@ export class TechFormInputBackgroundDirective extends TechStateComponentClass {
     if (!this.el.nativeElement.contains(event.target)) {
       if (e && (
         this.isFrozenState ||
-        this.state !== STATE_FOCUSED
+        this.state !== STATE_CLICKED
       )) {
         return;
       }

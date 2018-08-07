@@ -11,6 +11,7 @@ import { TechButtonModule } from '../../projects/ng-tech-ui/src/lib/modules/butt
 import { TechFormModule } from '../../projects/ng-tech-ui/src/lib/modules/form/tech-form.module';
 import { TypographyDemoComponent } from './components/typography-demo';
 import { ButtonDemoComponent } from './components/button-demo';
+import { TechOverlayModule } from '../../projects/ng-tech-ui/src/lib/modules/overlay/tech-overlay.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ButtonDemoComponent } from './components/button-demo';
     TechCardModule,
     TechButtonModule,
     TechFormModule,
+    TechOverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,7 +24,7 @@ import { STATE_CLICKED, STATE_DEFAULT, STATE_DISABLED, STATE_LOADING } from '../
 export class TechFormCheckboxComponent extends TechStateComponentClass implements OnChanges {
   @Input() model: string[];
   @Input() name: string;
-  @Output() OnModelChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() OnModelChange: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   get isChecked(): boolean {
     return !!this.model.find(item => item === this.name);
