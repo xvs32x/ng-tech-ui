@@ -14,7 +14,7 @@ import { STATE_CLICKED, STATE_DEFAULT, STATE_DISABLED, STATE_LOADING } from '../
 
 
 @Component({
-  selector: 'tech-form-checkbox-component',
+  selector: 'tech-form-checkbox',
   template: `
     <button techFormCheckboxLabel>
       <ng-content></ng-content>

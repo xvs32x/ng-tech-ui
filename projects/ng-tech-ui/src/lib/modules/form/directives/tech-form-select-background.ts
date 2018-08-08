@@ -2,13 +2,13 @@ import { Directive, ElementRef } from '@angular/core';
 import { TechFormInputBackgroundClass } from '../../../classes/tech-form-input-background.class';
 
 @Directive({
-  selector: '[techFormInputBackground]'
+  selector: '[techFormSelectBackground]'
 })
-export class TechFormInputBackgroundDirective extends TechFormInputBackgroundClass {
+export class TechFormSelectBackgroundDirective extends TechFormInputBackgroundClass {
 
   constructor(public el: ElementRef) {
     super(el);
-    this.el.nativeElement.classList.add('tech-ui-form-input-background', 'default');
+    this.el.nativeElement.classList.add('tech-ui-form-select-background', 'default');
   }
 
 }

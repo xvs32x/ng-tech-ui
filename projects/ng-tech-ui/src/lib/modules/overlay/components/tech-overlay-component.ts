@@ -1,6 +1,8 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
+import { Subscription } from 'rxjs';
+import { tap } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'tech-overlay',
@@ -11,8 +13,10 @@ import { TemplatePortal } from '@angular/cdk/portal';
   `
 })
 
-export class TechOverlayComponent implements OnInit {
+export class TechOverlayComponent implements OnInit, OnDestroy {
+  private subs: Subscription[] = [];
   @Input() config: OverlayConfig = null;
+  @Input() clickBackdropForClose = true;
   @ViewChild('template') template: TemplateRef<any>;
   private overlayRef: OverlayRef;
 
@@ -26,7 +30,7 @@ export class TechOverlayComponent implements OnInit {
   get defaultConfig() {
     return new OverlayConfig({
       hasBackdrop: true,
-      backdropClass: 'light',
+      backdropClass: 'backdrop-light',
       positionStrategy: this.defaultPositionStrategy
     });
   }
@@ -35,6 +39,10 @@ export class TechOverlayComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.subs.forEach(s => s.unsubscribe());
   }
 
   show() {
@@ -46,7 +54,12 @@ export class TechOverlayComponent implements OnInit {
       this.template,
       this.viewContainerRef
     );
+    if (this.clickBackdropForClose) {
+      const s1 = this.overlayRef.backdropClick().subscribe(_ => this.hide());
+      this.subs.push(s1);
+    }
     this.overlayRef.attach(overlayPortal);
+    return this.overlayRef;
   }
 
   hide() {

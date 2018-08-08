@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { TechOverlayService } from './services/tech-overlay.service';
 import { TechOverlayComponent } from './components/tech-overlay-component';
 import { OverlayModule } from '@angular/cdk/overlay';
 
@@ -15,7 +14,6 @@ import { OverlayModule } from '@angular/cdk/overlay';
     TechOverlayComponent
   ],
   providers: [
-    TechOverlayService
   ],
 })
 export class TechOverlayModule {

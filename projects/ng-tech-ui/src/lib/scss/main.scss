@@ -5,6 +5,7 @@ html, body {
   font-size: $tech-ui-font-size;
   color: $tech-ui-font-color;
   background: $tech-ui-body-background;
+  position: relative;
 }
 
 input, textarea {

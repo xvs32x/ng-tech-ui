@@ -63,7 +63,7 @@ $tech-ui-form-radio-clicked-border: 1px solid rgba(255, 255, 255, .8) !default;
 // Form input background
 $tech-ui-form-input-background-clicked-transition: .15s ease-out !default;
 $tech-ui-form-input-background-clicked-background: darken(#f4f6fa, 1%) !default;
-$tech-ui-form-input-background-clicked-border: 1px solid darken(#f4f6fa, 1%) !default;
+$tech-ui-form-input-background-clicked-border: 1px solid #f4f6fa !default;
 $tech-ui-form-input-background-validated-transition: background .15s ease-out !default;
 $tech-ui-form-input-background-validated-background: lighten($tech-ui-validated-color, 45%) !default;
 $tech-ui-form-input-background-validated-border: 1px solid lighten($tech-ui-validated-color, 45%) !default;
@@ -121,6 +121,28 @@ $tech-ui-form-label-font-size: 1rem !default;
 $tech-ui-form-label-padding: .6rem 0 .2rem 0 !default;
 $tech-ui-form-label-cursor: pointer !default;
 
+.tech-ui-form-select {
+}
+
+.tech-ui-form-select-option {
+  display: block;
+  padding: .5rem;
+}
+
+.tech-ui-form-select-overlay {
+  background: #f4f6fa;
+  width: 100%;
+  border-radius: 1.1rem;
+  border: 1px solid #f4f6fa;
+  &.clicked {
+    transition: .15s ease-out;
+    background: darken(#f4f6fa, 1%);
+    box-shadow: 0 .5rem 1rem #d8dfed;
+    //border: 1px solid darken(#f4f6fa, 10%);
+    //box-shadow: 0 0 0 3px transparentize(darken($tech-ui-default-color, 30%), .4);
+  }
+}
+
 .tech-ui-form-input-background {
   border: $tech-ui-form-input-background-border;
   background: $tech-ui-form-input-background-background;
@@ -137,6 +159,8 @@ $tech-ui-form-label-cursor: pointer !default;
     transition: $tech-ui-form-input-background-clicked-transition;
     background: $tech-ui-form-input-background-clicked-background;
     border: $tech-ui-form-input-background-clicked-border;
+    //box-shadow: 0 0 0 3px transparentize(darken($tech-ui-default-color, 30%), .4);
+
   }
   &.validated {
     transition: $tech-ui-form-input-background-validated-transition;
@@ -177,7 +201,7 @@ $tech-ui-form-label-cursor: pointer !default;
       transition: background .15s ease-out;
       content: '';
       position: absolute;
-      top: 0%;
+      top: 0;
       left: -50%;
       width: 200%;
       height: 200%;
@@ -186,6 +210,10 @@ $tech-ui-form-label-cursor: pointer !default;
       border-radius: 100%;
     }
   }
+}
+
+.tech-ui-form-select-background {
+  @extend .tech-ui-form-input-background;
 }
 
 @-webkit-keyframes form-scaleout {

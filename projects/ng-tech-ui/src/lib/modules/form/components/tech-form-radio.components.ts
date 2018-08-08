@@ -14,7 +14,7 @@ import { STATE_CLICKED, STATE_DISABLED, STATE_LOADING } from '../../../constants
 
 
 @Component({
-  selector: 'tech-form-radio-component',
+  selector: 'tech-form-radio',
   template: `
     <button techFormRadioLabel>
       <ng-content></ng-content>
