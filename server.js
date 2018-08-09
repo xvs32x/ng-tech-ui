@@ -10,8 +10,7 @@ console.log('starting...');
 app.use(express.static('./dist/ng-tech-ui-project'));
 
 app.get('/*', function(req,res) {
-
-  res.sendFile(path.join(__dirname,'/dist/ng-tech-ui-project/index.html'));
+  res.sendFile(path.join(__dirname, '/dist/ng-tech-ui-project/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
