@@ -50,5 +50,6 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1"
-  }
+  },
+  "postinstall": "ng build --prod"
 }
