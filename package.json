@@ -52,9 +52,5 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1"
   },
-  "engines": {
-    "node": "5.0.0",
-    "npm": "4.6.1"
-  },
   "postinstall": "ng build --prod"
 }
