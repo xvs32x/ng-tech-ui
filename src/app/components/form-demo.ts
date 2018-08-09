@@ -77,8 +77,8 @@ import {
                 <label techFormLabel>Your role:</label>
               </div>
               <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1rem)">
-                <tech-form-select placeholder="Select role" [model]="formSelectedRole" (OnModelChange)="onFormRoleChange($event)"
-                                  [options]="formRoles"></tech-form-select>
+                <tech-form-select  placeholder="Select role" [model]="formSelectedRole" (OnModelChange)="onFormRoleChange($event)"
+                                  [options]="formRoles" [state]="inputTextState"></tech-form-select>
               </div>
             </div>
             <!--Plans-->
