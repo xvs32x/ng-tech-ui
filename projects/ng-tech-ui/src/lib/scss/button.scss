@@ -11,6 +11,7 @@ $tech-ui-button-background: $tech-ui-default-color !default;
 $tech-ui-button-color: #262a2e !default;
 $tech-ui-button-position: relative !default;
 $tech-ui-button-overflow: hidden !default;
+$tech-ui-button-transition: .15s ease-out !default;
 $tech-ui-button-focused-transition: .15s ease-out !default;
 $tech-ui-button-focused-background: lighten($tech-ui-default-color, 5%) !default;
 $tech-ui-button-focused-border: 0 !default;
@@ -60,6 +61,7 @@ $tech-ui-button-primary-border: 0 !default;
 $tech-ui-button-primary-color: #fff !default;
 $tech-ui-button-primary-position: relative !default;
 $tech-ui-button-primary-overflow: hidden !default;
+$tech-ui-button-primary-transition: .15s ease-out !default;
 $tech-ui-button-primary-focused-transition: background .15s ease-out !default;
 $tech-ui-button-primary-focused-background: lighten($tech-ui-primary-color, 10%) !default;
 $tech-ui-button-primary-clicked-transition: box-shadow .15s ease-out !default;
@@ -111,6 +113,7 @@ $tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten($tec
   box-shadow: $tech-ui-button-box-shadow;
   position: $tech-ui-button-position;
   overflow: $tech-ui-button-overflow;
+  transition: $tech-ui-button-transition;
 
   &.focused {
     transition: $tech-ui-button-focused-transition;
@@ -184,6 +187,7 @@ $tech-ui-button-primary-invalidated-box-shadow:  0 0.125rem 0.75rem lighten($tec
   box-shadow: $tech-ui-button-primary-box-shadow;
   position: $tech-ui-button-primary-position;
   overflow: $tech-ui-button-primary-overflow;
+  transition: $tech-ui-button-primary-transition;
 
   &.focused {
     transition: $tech-ui-button-primary-focused-transition;

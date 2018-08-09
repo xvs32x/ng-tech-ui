@@ -10,6 +10,7 @@ $tech-ui-card-display: flex !default;
 $tech-ui-card-flex-direction: column !default;
 $tech-ui-card-flex-justify-content: start !default;
 $tech-ui-card-border: 1px solid #fff !default;
+$tech-ui-card-transition: .15s ease-out !default;
 $tech-ui-card-focused-box-shadow: 0 .7rem 1rem darken(#d8dfed, 1%) !default;
 $tech-ui-card-focused-transition: box-shadow .15s ease-out !default;
 $tech-ui-card-validated-transition: background .15s ease-out !default;
@@ -48,6 +49,7 @@ $tech-ui-card-footer-border-top: 1px solid #e9ecef !default;
   display: $tech-ui-card-display;
   flex-direction: $tech-ui-card-flex-direction;
   justify-content: $tech-ui-card-flex-justify-content;
+  transition: $tech-ui-card-transition;
 
   &.focused {
     box-shadow: $tech-ui-card-focused-box-shadow;

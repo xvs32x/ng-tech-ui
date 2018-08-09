@@ -77,7 +77,8 @@ import {
                 <label techFormLabel>Your role:</label>
               </div>
               <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1rem)">
-                <tech-form-select placeholder="Select role" [model]="formSelectedRole" [options]="formRoles"></tech-form-select>
+                <tech-form-select placeholder="Select role" [model]="formSelectedRole" (OnModelChange)="onFormRoleChange($event)"
+                                  [options]="formRoles"></tech-form-select>
               </div>
             </div>
             <!--Plans-->
@@ -159,5 +160,9 @@ export class FormDemoComponent implements OnInit {
 
   onFormOptionsChange(options: string[]) {
     this.formSelectedOptions = options;
+  }
+
+  onFormRoleChange(role: string | string[]) {
+    this.formSelectedRole = role;
   }
 }
