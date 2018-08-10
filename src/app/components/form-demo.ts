@@ -58,6 +58,16 @@ import {
                 ></tech-input-text>
               </div>
             </div>
+            <!--Select your role-->
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
+              <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
+                <label techFormLabel>Your role:</label>
+              </div>
+              <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1rem)">
+                <tech-form-select  placeholder="Select role" [model]="formSelectedRole" (OnModelChange)="onFormRoleChange($event)"
+                                  [options]="formRoles" [state]="inputTextState"></tech-form-select>
+              </div>
+            </div>
             <!--Resume-->
             <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
               <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
@@ -69,16 +79,6 @@ import {
                   [state]="inputTextState"
                   [placeholder]="'Enter some description about you'"
                 ></tech-input-text>
-              </div>
-            </div>
-            <!--Select your role-->
-            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="1rem">
-              <div fxFlex="calc(25%-1rem)" [ngStyle.gt-xs]="{'text-align': 'right'}">
-                <label techFormLabel>Your role:</label>
-              </div>
-              <div fxLayout="column" fxLayoutGap="1em" fxFlex="calc(75%-1rem)">
-                <tech-form-select  placeholder="Select role" [model]="formSelectedRole" (OnModelChange)="onFormRoleChange($event)"
-                                  [options]="formRoles" [state]="inputTextState"></tech-form-select>
               </div>
             </div>
             <!--Plans-->

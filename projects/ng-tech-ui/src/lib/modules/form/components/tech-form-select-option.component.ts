@@ -30,6 +30,7 @@ export class TechFormSelectOptionComponent extends TechStateComponentClass imple
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    TechStateComponentClass.prototype.ngOnChanges.call(this, changes);
     if (changes.model) {
       if (changes.model.currentValue) {
         this.onClick();
@@ -63,7 +64,4 @@ export class TechFormSelectOptionComponent extends TechStateComponentClass imple
     this.switchState(this.isChecked ? STATE_CLICKED : STATE_DEFAULT);
   }
 
-  changeModel(selected: string) {
-
-  }
 }

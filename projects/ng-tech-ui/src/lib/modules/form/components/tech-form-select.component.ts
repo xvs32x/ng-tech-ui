@@ -25,7 +25,11 @@ import { filter, tap } from 'rxjs/internal/operators';
     </div>
     <ng-template #template>
       <div techFormSelectOverlay [state]="overlayState">
-        <tech-form-select-option *ngIf="any" (OnClick)="model = null; hide()">
+        <div [state]="overlayState" techFormSelectBackground>
+          <input *ngIf="!model || !modelIsArray" type="text" [placeholder]="model ? modelLabel : placeholder" techFormInputText readonly>
+        </div>
+        <tech-form-select-option *ngIf="any" [isFrozenState]="!model" [state]="model ? 'default' : 'clicked'"
+                                 (OnClick)="model = null; hide()">
           {{anyText ? anyText : placeholder}}
         </tech-form-select-option>
         <tech-form-select-option

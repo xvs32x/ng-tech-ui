@@ -1,8 +1,8 @@
 @import "global";
 // Default
-$tech-ui-button-font-size: .95rem !default;
+$tech-ui-button-font-size: 1rem !default;
 $tech-ui-button-font-weight: 400 !default;
-$tech-ui-button-line-height: 2.8 !default;
+$tech-ui-button-line-height: 2.65 !default;
 $tech-ui-button-padding: 0 1rem !default;
 $tech-ui-button-border: 0 !default;
 $tech-ui-button-border-radius: 1.1rem !default;
@@ -50,9 +50,9 @@ $tech-ui-button-invalidated-background: lighten($tech-ui-invalidated-color, 40%)
 $tech-ui-button-invalidated-border: 0 !default;
 $tech-ui-button-invalidated-box-shadow:  0 0.125rem 0.75rem lighten($tech-ui-invalidated-color, 20%) !default;
 // Primary
-$tech-ui-button-primary-font-size: .95rem !default;
+$tech-ui-button-primary-font-size: 1rem !default;
 $tech-ui-button-primary-font-weight: 400 !default;
-$tech-ui-button-primary-line-height: 2.8 !default;
+$tech-ui-button-primary-line-height: 2.65 !default;
 $tech-ui-button-primary-padding: 0 1rem !default;
 $tech-ui-button-primary-border-radius: 1.1rem !default;
 $tech-ui-button-primary-box-shadow: 0 0.125rem 0.75rem lighten($tech-ui-primary-color, 10%) !default;
