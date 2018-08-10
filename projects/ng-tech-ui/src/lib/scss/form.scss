@@ -81,7 +81,7 @@ $tech-ui-form-input-background-disabled-height: 100% !default;
 $tech-ui-form-input-background-disabled-background: rgba(255, 255, 255, .6) !default;
 $tech-ui-form-input-background-border: 1px solid #f4f6fa !default;
 $tech-ui-form-input-background-background: #f4f6fa !default;
-$tech-ui-form-input-background-padding: .6rem !default;
+$tech-ui-form-input-background-padding: .74rem !default;
 $tech-ui-form-input-background-border-radius: 1.1rem !default;
 $tech-ui-form-input-background-outline: 0 !default;
 $tech-ui-form-input-background-position: relative !default;
@@ -98,8 +98,8 @@ $tech-ui-form-input-text-padding: 0 !default;
 $tech-ui-form-input-text-background: transparent !default;
 $tech-ui-form-input-text-position: relative !default;
 $tech-ui-form-input-text-top: -1px !default;
-$tech-ui-form-input-text-line-height: 1.2 !default;
-$tech-ui-form-input-text-height: 1.3rem !default;
+//$tech-ui-form-input-text-line-height: 1.2 !default;
+$tech-ui-form-input-text-height: 1rem !default;
 $tech-ui-form-input-text-font-size: 1rem !default;
 // Form input textarea
 $tech-ui-form-input-textarea-display: block !default;
@@ -110,15 +110,15 @@ $tech-ui-form-input-textarea-padding: 0 !default;
 $tech-ui-form-input-textarea-background: transparent !default;
 $tech-ui-form-input-textarea-position: relative !default;
 $tech-ui-form-input-textarea-top: -1px !default;
-$tech-ui-form-input-textarea-line-height: 1.4 !default;
-$tech-ui-form-input-textarea-height: 1.3rem !default;
-$tech-ui-form-input-textarea-min-height: 1.3rem !default;
+//$tech-ui-form-input-textarea-line-height: 1.4 !default;
+$tech-ui-form-input-textarea-height: 1rem !default;
+$tech-ui-form-input-textarea-min-height: 1rem !default;
 $tech-ui-form-input-textarea-font-size: 1rem !default;
 $tech-ui-form-input-textarea-resize: vertical !default;
 // Form label
 $tech-ui-form-label-display: inline-block !default;
 $tech-ui-form-label-font-size: 1rem !default;
-$tech-ui-form-label-padding: .6rem 0 .2rem 0 !default;
+$tech-ui-form-label-padding: .7rem 0 .2rem 0 !default;
 $tech-ui-form-label-cursor: pointer !default;
 
 .tech-ui-form-select {
@@ -260,7 +260,7 @@ $tech-ui-form-label-cursor: pointer !default;
   background: $tech-ui-form-input-text-background;
   position: $tech-ui-form-input-text-position;
   top: $tech-ui-form-input-text-top;
-  line-height: $tech-ui-form-input-text-line-height;
+  //line-height: $tech-ui-form-input-text-line-height;
   height: $tech-ui-form-input-text-height;
   font-size: $tech-ui-form-input-text-font-size;
 }
@@ -274,7 +274,7 @@ $tech-ui-form-label-cursor: pointer !default;
   background: $tech-ui-form-input-textarea-background;
   position: $tech-ui-form-input-textarea-position;
   top: $tech-ui-form-input-textarea-top;
-  line-height: $tech-ui-form-input-textarea-line-height;
+  //line-height: $tech-ui-form-input-textarea-line-height;
   height: $tech-ui-form-input-textarea-height;
   min-height: $tech-ui-form-input-textarea-min-height;
   font-size: $tech-ui-form-input-textarea-font-size;
