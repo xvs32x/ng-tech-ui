@@ -4,8 +4,6 @@ const path = require('path');
 
 const app = express();
 
-console.log('starting...');
-
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/ng-tech-ui-project'));
 
